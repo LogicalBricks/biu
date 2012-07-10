@@ -9,7 +9,14 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+/db/schema.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore vim temp files
+*.swp
+
+# Ignore rvmrc file
+.rvmrc
