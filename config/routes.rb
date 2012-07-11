@@ -1,4 +1,10 @@
 Biu::Application.routes.draw do
+  resources :lugares
+
+  resources :eventos
+
+  resources :localidades
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @evento.nombre
+%p
+  %b Resumen:
+  = @evento.resumen
+%p
+  %b Descripcion:
+  = @evento.descripcion
+%p
+  %b Fecha y hora:
+  = @evento.fecha_y_hora
+%p
+  %b Costo:
+  = @evento.costo
+
+= link_to 'Edit', edit_evento_path(@evento)
+\|
+= link_to 'Back', eventos_path

@@ -1,0 +1,23 @@
+%h1 Listing lugares
+
+%table
+  %tr
+    %th Nombre
+    %th Resumen
+    %th Descripcion
+    %th
+    %th
+    %th
+
+  - @lugares.each do |lugar|
+    %tr
+      %td= lugar.nombre
+      %td= lugar.resumen
+      %td= lugar.descripcion
+      %td= link_to 'Show', lugar
+      %td= link_to 'Edit', edit_lugar_path(lugar)
+      %td= link_to 'Destroy', lugar, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Lugar', new_lugar_path

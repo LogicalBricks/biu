@@ -1,0 +1,19 @@
+%h1 Listing localidades
+
+%table
+  %tr
+    %th Nombre
+    %th
+    %th
+    %th
+
+  - @localidades.each do |localidad|
+    %tr
+      %td= localidad.nombre
+      %td= link_to 'Show', localidad
+      %td= link_to 'Edit', edit_localidad_path(localidad)
+      %td= link_to 'Destroy', localidad, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Localidad', new_localidad_path

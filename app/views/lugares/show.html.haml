@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @lugar.nombre
+%p
+  %b Resumen:
+  = @lugar.resumen
+%p
+  %b Descripcion:
+  = @lugar.descripcion
+
+= link_to 'Edit', edit_lugar_path(@lugar)
+\|
+= link_to 'Back', lugares_path
