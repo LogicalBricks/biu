@@ -20,3 +20,6 @@
 
 # Ignore rvmrc file
 .rvmrc
+
+# Uploads
+/public/uploads

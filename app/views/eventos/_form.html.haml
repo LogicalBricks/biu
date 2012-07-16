@@ -1,25 +1,27 @@
-= form_for @evento do |f|
-  -if @evento.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@evento.errors.count, "error")} prohibited this evento from being saved:"
-      %ul
-        - @evento.errors.full_messages.each do |msg|
-          %li= msg
+= form_for(@evento, html:{ class:'form-horizontal'}) do |f|
+  = render 'error_messages', :target => @evento
+  %fieldset 
+    .control-group
+      = f.label :nombre, class: 'control-label'
+      .controls
+        = f.text_field :nombre
+    .control-group
+      = f.label :resumen, class: 'control-label'
+      .controls
+        = f.text_area :resumen
+    .control-group
+      = f.label :descripcion, class: 'control-label'
+      .controls
+        = f.text_area :descripcion
+    .control-group
+      = f.label :fecha_y_hora, class: 'control-label'
+      .controls
+        = f.datetime_select :fecha_y_hora
+    .control-group
+      = f.label :costo, class: 'control-label'
+      .controls
+        = f.text_field :costo
 
-  .field
-    = f.label :nombre
-    = f.text_field :nombre
-  .field
-    = f.label :resumen
-    = f.text_area :resumen
-  .field
-    = f.label :descripcion
-    = f.text_area :descripcion
-  .field
-    = f.label :fecha_y_hora
-    = f.datetime_select :fecha_y_hora
-  .field
-    = f.label :costo
-    = f.text_field :costo
-  .actions
-    = f.submit 'Save'
+    = render 'fotografias/fotografias_fields', :f => f
+  .form-actions
+    = f.submit 'Save', class: 'btn btn-primary'

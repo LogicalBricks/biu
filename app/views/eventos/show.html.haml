@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %p
   %b Nombre:
   = @evento.nombre
@@ -16,6 +14,21 @@
   %b Costo:
   = @evento.costo
 
-= link_to 'Edit', edit_evento_path(@evento)
-\|
-= link_to 'Back', eventos_path
+#FotosCarousel.carousel.slide
+  .carousel-inner
+    - first_element = true
+    - @evento.fotografias.each do |f|
+      = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
+        = image_tag(f.imagen_url(:medium).to_s) 
+        .carousel-caption
+          %h4
+            = f.titulo
+          %p
+            = f.descripcion
+      - first_element = false
+  = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
+  = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
+
+.btn-group
+  = link_to 'Editar', edit_evento_path(@evento), class: 'btn'
+  = link_to 'Regresar', eventos_path, class: 'btn'

@@ -1,11 +1,5 @@
 = form_for @lugar do |f|
-  -if @lugar.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@lugar.errors.count, "error")} prohibited this lugar from being saved:"
-      %ul
-        - @lugar.errors.full_messages.each do |msg|
-          %li= msg
-
+  = render 'error_messages', :target => @access_point
   .field
     = f.label :nombre
     = f.text_field :nombre

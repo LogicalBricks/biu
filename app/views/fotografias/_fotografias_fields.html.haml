@@ -1,0 +1,22 @@
+#fotografias_fields
+  .items
+    = f.nested_fields_for :fotografias do |foto| 
+      %fieldset.item
+        = foto.label :imagen
+        = foto.file_field :imagen
+
+        = foto.label :titulo
+        = foto.text_field :titulo
+
+        = foto.label :descripcion
+        = foto.text_field :descripcion
+
+        = link_to 'x', '#', class: 'btn remove'
+
+        = foto.hidden_field :id
+        = foto.hidden_field :_destroy
+  = link_to 'Agregar foto','#', class: 'add'
+
+
+
+    

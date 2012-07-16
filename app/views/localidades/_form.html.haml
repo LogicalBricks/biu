@@ -1,13 +1,7 @@
 = form_for @localidad do |f|
-  -if @localidad.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@localidad.errors.count, "error")} prohibited this localidad from being saved:"
-      %ul
-        - @localidad.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
+  = render 'error_messages', :target => @localidad
+   .field
     = f.label :nombre
     = f.text_field :nombre
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

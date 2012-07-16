@@ -1,5 +1,5 @@
 class Evento < ActiveRecord::Base
-  attr_accessible :costo, :descripcion, :fecha_y_hora, :nombre, :resumen
+  attr_accessible :costo, :descripcion, :fecha_y_hora, :nombre, :resumen, :fotografias_attributes
 
   has_many :fotografias, as: :fotografiable, dependent: :destroy
 

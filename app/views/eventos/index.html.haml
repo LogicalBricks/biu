@@ -8,8 +8,6 @@
     %th Fecha y hora
     %th Costo
     %th
-    %th
-    %th
 
   - @eventos.each do |evento|
     %tr
@@ -18,10 +16,11 @@
       %td= evento.descripcion
       %td= evento.fecha_y_hora
       %td= evento.costo
-      %td= link_to 'Show', evento
-      %td= link_to 'Edit', edit_evento_path(evento)
-      %td= link_to 'Destroy', evento, :confirm => 'Are you sure?', :method => :delete
+      %td.btn-group
+        = link_to 'Show', evento, class: 'btn'
+        = link_to 'Edit', edit_evento_path(evento), class: 'btn'
+        = link_to 'Destroy', evento, :confirm => 'Are you sure?', :method => :delete, class: 'btn'
 
 %br
 
-= link_to 'New Evento', new_evento_path
+= link_to 'New Evento', new_evento_path, class:'btn btn-primary'
