@@ -33,7 +33,7 @@ gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootst
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'cucumber-rails', require: false
@@ -42,7 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'sqlite3'
-  gem 'nyan-cat-formatter', git: 'git://github.com/mattsears/nyan-cat-formatter.git'
+  gem 'nyan-cat-formatter'
 end
 
 gem 'tabulous'

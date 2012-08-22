@@ -6,6 +6,7 @@ class CreateEventos < ActiveRecord::Migration
       t.text :descripcion
       t.datetime :fecha_y_hora
       t.string :costo
+      t.references :localidad
 
       t.timestamps
     end

@@ -19,12 +19,6 @@ GIT
       sass
 
 GIT
-  remote: git://github.com/mattsears/nyan-cat-formatter.git
-  revision: e0aa9ef1ad57c07ed9749f12537209e7927b8613
-  specs:
-    nyan-cat-formatter (0.0.8.1)
-
-GIT
   remote: git://github.com/rweng/jquery-datatables-rails.git
   revision: a6bde0aed270e9d3dac239d331f84f9c22817750
   specs:
@@ -140,6 +134,7 @@ GEM
     multi_json (1.3.6)
     nokogiri (1.5.5)
     notifier (0.2.1)
+    nyan-cat-formatter (0.0.8.1)
     pg (0.14.0)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -195,10 +190,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip
     sexp_processor (3.2.0)
-    shoulda (3.1.1)
-      shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.2)
-    shoulda-context (1.0.0)
     shoulda-matchers (1.2.0)
       activesupport (>= 3.0.0)
     sprockets (2.1.3)
@@ -245,7 +236,7 @@ DEPENDENCIES
   jquery-datatables-rails!
   jquery-rails
   lbs-config!
-  nyan-cat-formatter!
+  nyan-cat-formatter
   pg
   rails (= 3.2.8)
   rieles!
@@ -253,7 +244,7 @@ DEPENDENCIES
   rspec-rails
   ruby_parser
   sass-rails (~> 3.2.3)
-  shoulda
+  shoulda-matchers
   sqlite3
   tabulous
   test_notifier
