@@ -1,34 +1,34 @@
-%p
-  %b Nombre:
-  = @evento.nombre
-%p
-  %b Resumen:
-  = @evento.resumen
-%p
-  %b Descripcion:
-  = @evento.descripcion
-%p
-  %b Fecha y hora:
-  = @evento.fecha_y_hora
-%p
-  %b Costo:
-  = @evento.costo
+.row.page-header
+  .span7
+    %h1
+      = @evento.nombre
+  .span5
+    %h2
+      = @evento.fecha_y_hora.strftime('%d/%m/%Y - %l:%M%p')
+      %small
+        Costo:
+        = number_to_currency @evento.costo
+.row
+  .span7
+    #FotosCarousel.carousel.slide   
+      .carousel-inner
+        - first_element = true
+        - @evento.fotografias.each do |f|
+          = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
+            = image_tag(f.imagen_url(:medium).to_s) 
+            .carousel-caption
+              %h4
+                = f.titulo
+              %p
+                = f.descripcion
+            - first_element = false
+      = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
+      = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
+  .span5
+    %p.evento_resumen
+      %strong Resumen:
+      = @evento.resumen
+    %p.evento_descripcion
+      %strong Descripción:
+      = @evento.descripcion
 
-#FotosCarousel.carousel.slide
-  .carousel-inner
-    - first_element = true
-    - @evento.fotografias.each do |f|
-      = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
-        = image_tag(f.imagen_url(:medium).to_s) 
-        .carousel-caption
-          %h4
-            = f.titulo
-          %p
-            = f.descripcion
-      - first_element = false
-  = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
-  = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
-
-.btn-group
-  = link_to 'Editar', edit_evento_path(@evento), class: 'btn'
-  = link_to 'Regresar', eventos_path, class: 'btn'
