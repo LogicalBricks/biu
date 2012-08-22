@@ -43,6 +43,8 @@ group :development, :test do
   gem 'email_spec'
   gem 'sqlite3'
   gem 'nyan-cat-formatter', git: 'git://github.com/mattsears/nyan-cat-formatter.git'
+  gem 'populator'
+  gem 'faker'
 end
 
 gem 'tabulous'

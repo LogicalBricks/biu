@@ -5,7 +5,7 @@ class CreateEventos < ActiveRecord::Migration
       t.text :resumen
       t.text :descripcion
       t.datetime :fecha_y_hora
-      t.string :costo
+      t.float :costo
 
       t.timestamps
     end
