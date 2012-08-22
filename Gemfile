@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -32,8 +32,8 @@ gem 'cancan'
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 
 group :development, :test do
-  gem 'minitest'
-  gem 'minitest-matchers'
+  gem 'rspec-rails'
+  gem 'shoulda'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'cucumber-rails', require: false
@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'sqlite3'
+  gem 'nyan-cat-formatter', git: 'git://github.com/mattsears/nyan-cat-formatter.git'
 end
 
 gem 'tabulous'
