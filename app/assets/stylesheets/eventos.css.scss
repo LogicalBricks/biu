@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #FotosCarousel {
-  background: #ddd;
-  width: 500px;
-  height: 500px;
+  background: transparent;
 }
+
+.evento_resumen, .evento_descripcion
+{
+  text-align: justify;
+}
+
+
