@@ -8,10 +8,10 @@ namespace :db do
  
     Evento.populate 50 do |evento|
       evento.nombre = Populator.words(1..3).titleize
-      evento.resumen = Populator.paragraphs(1)
-      evento.descripcion= Populator.paragraphs(1..4)
+      evento.resumen = Populator.sentences(5..8)
+      evento.descripcion= Populator.paragraphs(1..3)
       evento.fecha_y_hora = 5.months.ago..1.year.from_now
-      evento.costo = [ 100.00, 500.00, 300.00, 400.00, 0.00 ]
+      evento.costo = [ 100.00, 500.00, 1000.00, 300.00, 400.00, 0.00 ]
     end 
 
   end

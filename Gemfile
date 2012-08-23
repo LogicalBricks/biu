@@ -44,7 +44,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'nyan-cat-formatter'
   gem 'populator'
-  gem 'faker'
+  gem 'lbs-faker', github: 'LogicalBricks/lbs-faker'
 end
 
 gem 'tabulous'

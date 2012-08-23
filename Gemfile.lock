@@ -5,6 +5,13 @@ GIT
     lbs-config (0.0.3)
 
 GIT
+  remote: git://github.com/LogicalBricks/lbs-faker.git
+  revision: 2cdc5a3792e06196407ba8053b763a3cda3a3235
+  specs:
+    lbs-faker (1.0.1)
+      i18n (~> 0.5)
+
+GIT
   remote: git://github.com/LogicalBricks/rieles.git
   revision: d4b33154897f75df1b030f911cc5a474805b1ca3
   specs:
@@ -101,8 +108,6 @@ GEM
     factory_girl_rails (4.0.0)
       factory_girl (~> 4.0.0)
       railties (>= 3.0.0)
-    faker (1.0.1)
-      i18n (~> 0.4)
     ffi (1.1.5)
     gherkin (2.11.2)
       json (>= 1.4.6)
@@ -229,12 +234,12 @@ DEPENDENCIES
   database_cleaner
   email_spec
   factory_girl_rails
-  faker
   haml-rails
   hpricot
   jquery-datatables-rails!
   jquery-rails
   lbs-config!
+  lbs-faker!
   nyan-cat-formatter
   pg
   populator
