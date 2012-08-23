@@ -11,20 +11,6 @@ GIT
     rieles (0.0.4)
 
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 8b2ff9a2c679bbc44acfbf14292984c63920d3e6
-  specs:
-    anjlab-bootstrap-rails (2.1.0.0)
-      railties (>= 3.0)
-      sass
-
-GIT
-  remote: git://github.com/mattsears/nyan-cat-formatter.git
-  revision: e0aa9ef1ad57c07ed9749f12537209e7927b8613
-  specs:
-    nyan-cat-formatter (0.0.8.1)
-
-GIT
   remote: git://github.com/rweng/jquery-datatables-rails.git
   revision: a6bde0aed270e9d3dac239d331f84f9c22817750
   specs:
@@ -62,6 +48,9 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.2)
+    anjlab-bootstrap-rails (2.1.0.0)
+      railties (>= 3.0)
+      sass
     arel (3.0.2)
     awesome_nested_fields (0.6.0)
       rails (>= 3.0.0)
@@ -142,6 +131,7 @@ GEM
     multi_json (1.3.6)
     nokogiri (1.5.5)
     notifier (0.2.1)
+    nyan-cat-formatter (0.0.8.1)
     pg (0.14.0)
     polyglot (0.3.3)
     populator (1.0.0)
@@ -198,10 +188,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip
     sexp_processor (3.2.0)
-    shoulda (3.1.1)
-      shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.2)
-    shoulda-context (1.0.0)
     shoulda-matchers (1.2.0)
       activesupport (>= 3.0.0)
     sprockets (2.1.3)
@@ -232,7 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
+  anjlab-bootstrap-rails
   awesome_nested_fields
   cancan
   capybara
@@ -249,7 +235,7 @@ DEPENDENCIES
   jquery-datatables-rails!
   jquery-rails
   lbs-config!
-  nyan-cat-formatter!
+  nyan-cat-formatter
   pg
   populator
   rails (= 3.2.8)
@@ -258,7 +244,7 @@ DEPENDENCIES
   rspec-rails
   ruby_parser
   sass-rails (~> 3.2.3)
-  shoulda
+  shoulda-matchers
   sqlite3
   tabulous
   test_notifier
