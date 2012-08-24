@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Lugar do
+  it { should belong_to(:localidad) }
+  it { should have_many(:fotografias) }
+
   it { should validate_presence_of(:nombre) }
   it { should validate_presence_of(:resumen) }
   it { should validate_presence_of(:descripcion) }

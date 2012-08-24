@@ -22,6 +22,5 @@
         = link_to 'Editar', edit_evento_path(evento), class: 'btn'
         = link_to 'Borrar', evento, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'
 
-%br
-
-= link_to 'Crear Evento', new_evento_path, class:'btn btn-primary'
+.form-actions
+  = link_to 'Crear Evento', new_evento_path, class:'btn btn-primary'
