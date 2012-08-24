@@ -3,33 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .foto_slide {
-  height: 380px;
-  width: 780px;
   background-color: green;
   float: left;
   margin: 15px;
 }
 
-.evento_resumen {
-  width: 200px;
-  float: left;
-  padding: 5px;
-  border: 1px solid #aaa;
-  margin: 2px;
-  border-radius: 15px;
+.eventos {
+  .preview {
+    width: 200px;
+    float: left;
+    padding: 5px;
+    border: 1px solid #aaa;
+    margin: 2px;
+    border-radius: 15px;
 
-  .nombre {
-    font-weight: bold;
-  }
+    .nombre {
+      font-weight: bold;
+    }
 
-  .fecha {
-    font-style: italic;
-  }
+    .fecha {
+      font-style: italic;
+    }
 
-  .foto {
-    width: 150px;
-    height: 80px;
-    padding: 3px;
-    background-color: gray;
+    .foto {
+      padding: 3px;
+      float: left;
+      margin-right: 3px;
+    }
   }
 }

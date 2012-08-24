@@ -4,7 +4,7 @@ namespace :db do
     require 'populator'
     require 'faker'
 
-    fotos_path = File.join(Rails.root,'spec','Fotos')
+    fotos_path = File.join(Rails.root, 'lib', 'fotos')
     fotos = Dir.glob(fotos_path+'/*')
 
     

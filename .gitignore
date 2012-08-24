@@ -21,5 +21,8 @@
 # Ignore rvmrc file
 .rvmrc
 
+# Apps pictures
+lib/fotos
+
 # Uploads
 /public/uploads
