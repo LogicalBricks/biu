@@ -10,7 +10,7 @@ namespace :db do
     
     [Evento, Lugar, Fotografia, Localidad, Localizacion].each(&:delete_all)
  
-    Evento.populate 50 do |evento|
+    Evento.populate 500 do |evento|
       evento.nombre = Populator.words(1..3).titleize
       evento.lugar = Populator.words(1..3)
       evento.resumen = Populator.sentences(5..8)
@@ -29,7 +29,7 @@ namespace :db do
       end
     end 
 
-     Lugar.populate 10 do |lugar|
+     Lugar.populate 50 do |lugar|
       lugar.nombre = Populator.words(1..3).titleize
       lugar.resumen = Populator.sentences(5..8)
       lugar.descripcion= Populator.paragraphs(1..3)

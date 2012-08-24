@@ -1,5 +1,7 @@
 Biu::Application.routes.draw do
   get "home/index"
+  get "home/lugares"
+  get "home/lugares_all"
 
   resources :lugares
 
