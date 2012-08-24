@@ -14,6 +14,10 @@
       .controls
         = f.text_area :descripcion
     .control-group
+      = f.label :lugar, class: 'control-label'
+      .controls
+        = f.text_field :lugar
+    .control-group
       = f.label :fecha_y_hora, class: 'control-label'
       .controls
         = f.datetime_select :fecha_y_hora
