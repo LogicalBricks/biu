@@ -11,4 +11,7 @@ class Evento < ActiveRecord::Base
   validates :nombre, :resumen, :descripcion, :fecha_y_hora, presence: true
   validates :nombre, :resumen, length: {maximum: 255}
   validates :descripcion, length: {maximum: 2500}
+
+  # Scopes
+  scope :proximos, where('fecha_y_hora >= ? AND fecha_y_hora < ?', Time.now, 2.weeks.from_now)
 end

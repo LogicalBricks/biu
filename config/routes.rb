@@ -1,4 +1,6 @@
 Biu::Application.routes.draw do
+  get "home/index"
+
   resources :lugares
 
   resources :eventos

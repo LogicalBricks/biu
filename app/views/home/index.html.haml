@@ -1,0 +1,11 @@
+.foto_slide
+  = image_tag 'slide', size: '300x50'
+- @eventos.each do |evento|
+  .evento_resumen
+    .nombre=  evento.nombre
+    .foto= image_tag 'thumb'
+    .resumen= truncate evento.resumen, length: 120
+    .ver_mas
+      %a
+        \Ver más
+    .fecha= l evento.fecha_y_hora, format: :short
