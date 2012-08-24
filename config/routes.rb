@@ -1,4 +1,8 @@
 Biu::Application.routes.draw do
+  match 'calendario/:year/:month' => 'home#calendario'
+
+  match 'calendario' => 'home#calendario'
+
   get "home/index"
 
   resources :lugares
@@ -6,6 +10,8 @@ Biu::Application.routes.draw do
   resources :eventos
 
   resources :localidades
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

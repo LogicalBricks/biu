@@ -39,10 +39,37 @@ describe Evento do
       Evento.proximos.should_not include(evento)
     end
 
-    it 'should NOT include an event which ill happen one month from now' do
+    it 'should NOT include an event which will happen one month from now' do
       evento = FactoryGirl.create :evento, fecha_y_hora: 1.month.from_now
       Evento.proximos.should_not include(evento)
     end
+  end #.proximos
 
-  end
+  describe 'del_mes' do
+    it 'should include an event which happened at beginning of month' do
+      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.beginning_of_month
+      Evento.del_mes.should include(evento)
+    end
+
+    it 'should include an event which will happen at end of month' do
+      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.end_of_month
+      Evento.del_mes.should include(evento)
+    end
+
+    it 'should include an event which will happen at middle of month' do
+      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.beginning_of_month + 15.days
+      Evento.del_mes.should include(evento)
+    end
+
+    it 'should NOT include an event which will happen next month' do
+      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.next_month
+      Evento.del_mes.should_not include(evento)
+    end
+
+    it 'should NOT include an event which happened last month' do
+      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.prev_month
+      Evento.del_mes.should_not include(evento)
+    end
+
+  end #.del_mes
 end

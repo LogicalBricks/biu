@@ -5,12 +5,14 @@
 .foto_slide {
   background-color: green;
   float: left;
-  margin: 15px;
+  margin: 10px;
+  background-color: green;
 }
 
 .eventos {
   .preview {
     width: 200px;
+    height: 220px;
     float: left;
     padding: 5px;
     border: 1px solid #aaa;
@@ -30,5 +32,31 @@
       float: left;
       margin-right: 3px;
     }
+  }
+}
+
+.buscar {
+  label {
+    display: inline;
+    font-weight: bold;
+  }
+}
+
+.single {
+}
+
+.multiple {
+  background-color:#cccccc;
+  background-image: url(<%= asset_path 'pile_of_old_photographs_md_wm.jpg' %>);
+  background-repeat: repeat-x;
+  height: 62px;
+  width: 80px;
+}
+
+#calendar {
+  img {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 47px;
   }
 }

@@ -26,7 +26,7 @@ gem 'rieles', github: 'LogicalBricks/rieles'
 gem 'haml-rails'
 
 gem 'jquery-rails'
-gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'jquery-datatables-rails', :git => 'git://github.com/rweng/jquery-datatables-rails'
 gem 'cancan'
 
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails'
@@ -57,6 +57,9 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem 'awesome_nested_fields'
+
+gem "watu_table_builder", :require => "table_builder"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
