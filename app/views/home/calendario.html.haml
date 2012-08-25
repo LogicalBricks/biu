@@ -1,10 +1,11 @@
-.span1= link_to 'Mes anterior', '/calendario/' + @last_month
+%h1.nombre_mes= l(@date, format: :mes_anio).titleize
+.span1= link_to 'Mes anterior', '/calendario/' + "#{@date.prev_month.year}/#{@date.prev_month.month}"
 .span9
   #calendar
-    = calendar_for(@eventos, :year => @year, :month => @month, html: { class: 'table table-bordered' }) do |t|
+    = calendar_for(@eventos, :year => @date.year, :month => @date.month, html: { class: 'table table-bordered' }) do |t|
       = t.head('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sábado', 'domingo')
       = t.day(day_method: :fecha_y_hora) do |fecha, eventos|
-        - if fecha.month == @month
+        - if fecha.month == @date.month
           = fecha.day
           %br
           = content_tag :div, class: (eventos.size > 1 ? 'multiple' : 'single') do
@@ -12,4 +13,4 @@
             - evento = eventos.first
             = link_to_evento evento, nombres if eventos.size > 0
 
-.span1= link_to 'Mes siguiente', '/calendario/' + @next_month
+.span1= link_to 'Mes siguiente', '/calendario/' + "#{@date.next_month.year}/#{@date.next_month.month}"

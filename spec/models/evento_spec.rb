@@ -45,30 +45,65 @@ describe Evento do
     end
   end #.proximos
 
-  describe 'del_mes' do
-    it 'should include an event which happened at beginning of month' do
-      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.beginning_of_month
-      Evento.del_mes.should include(evento)
+  describe '.del_mes' do
+    context 'with no param' do
+      it 'should include an event which happened at beginning of month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.beginning_of_month
+        Evento.del_mes.should include(evento)
+      end
+
+      it 'should include an event which will happen at end of month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.end_of_month
+        Evento.del_mes.should include(evento)
+      end
+
+      it 'should include an event which will happen at middle of month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.beginning_of_month + 15.days
+        Evento.del_mes.should include(evento)
+      end
+
+      it 'should NOT include an event which will happen next month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.next_month
+        Evento.del_mes.should_not include(evento)
+      end
+
+      it 'should NOT include an event which happened last month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.prev_month
+        Evento.del_mes.should_not include(evento)
+      end
+
     end
 
-    it 'should include an event which will happen at end of month' do
-      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.end_of_month
-      Evento.del_mes.should include(evento)
-    end
+    context 'with param' do
+      before :each do
+        @date = 5.months.ago
+      end
 
-    it 'should include an event which will happen at middle of month' do
-      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.beginning_of_month + 15.days
-      Evento.del_mes.should include(evento)
-    end
+      it 'should include an event which happened at beginning of month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: @date.beginning_of_month
+        Evento.del_mes(@date).should include(evento)
+      end
 
-    it 'should NOT include an event which will happen next month' do
-      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.next_month
-      Evento.del_mes.should_not include(evento)
-    end
+      it 'should include an event which will happen at end of month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: @date.end_of_month
+        Evento.del_mes(@date).should include(evento)
+      end
 
-    it 'should NOT include an event which happened last month' do
-      evento = FactoryGirl.create :evento, fecha_y_hora: Date.today.prev_month
-      Evento.del_mes.should_not include(evento)
+      it 'should include an event which will happen at middle of month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: @date.beginning_of_month + 15.days
+        Evento.del_mes(@date).should include(evento)
+      end
+
+      it 'should NOT include an event which will happen next month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: @date.next_month
+        Evento.del_mes(@date).should_not include(evento)
+      end
+
+      it 'should NOT include an event which happened last month' do
+        evento = FactoryGirl.create :evento, fecha_y_hora: @date.prev_month
+        Evento.del_mes(@date).should_not include(evento)
+      end
+
     end
 
   end #.del_mes
