@@ -1,5 +1,7 @@
 %h1.nombre_mes= l(@date, format: :mes_anio).titleize
-.span1= link_to 'Mes anterior', '/calendario/' + "#{@date.prev_month.year}/#{@date.prev_month.month}"
+
+.span1= link_to_previous_month @date
+
 .span9
   #calendar
     = calendar_for(@eventos, :year => @date.year, :month => @date.month, html: { class: 'table table-bordered' }) do |t|
@@ -13,4 +15,4 @@
             - evento = eventos.first
             = link_to_evento evento, nombres if eventos.size > 0
 
-.span1= link_to 'Mes siguiente', '/calendario/' + "#{@date.next_month.year}/#{@date.next_month.month}"
+.span1= link_to_next_month @date

@@ -103,6 +103,7 @@ es:
       default: "%d/%m/%Y"
       long: "%A, %d de %B de %Y"
       mes_anio: "%B %Y"
+      nombre_mes: "%B"
   time:
     formats:
       short: "%d de %b a las %H:%M hrs"

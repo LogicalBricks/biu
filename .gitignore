@@ -28,5 +28,5 @@ lib/fotos
 /public/uploads
 
 # Development sorl
-/solr/data/development
-/solr/pids/development
+/solr/data
+/solr/pids

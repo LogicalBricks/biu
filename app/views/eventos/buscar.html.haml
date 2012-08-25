@@ -1,17 +1,17 @@
-%h1= "Resultado de la búsqueda de #{@busqueda}"
+%h1= "Resultado de la búsqueda"
 
 %ul#myTab.nav.nav-tabs
   %li.active
-    = link_to 'Eventos', '#home', data: {toggle: "tab"}
+    = link_to "Eventos (#{@eventos.size})", '#home', data: {toggle: "tab"}
   %li
-    = link_to 'Lugares', '#profile', data: {toggle: "tab"}
+    = link_to "Lugares (#{@lugares.size})", '#profile', data: {toggle: "tab"}
 
 .row
   #myTabContent.tab-content
     #home.tab-pane.fade.in.active
 
       .span5
-        %h3= "#{@eventos.size} Eventos"
+        %h3= "Eventos que coinciden con #{@busqueda}"
       .otro{style: 'clear: both'}
 
       - primeros_eventos = @eventos[1..10] || []
@@ -22,7 +22,7 @@
             .nombre
               = evento.nombre
               = evento.costo == 0 ? '¡Gratis!' : number_to_currency(evento.costo)
-            .foto= image_tag evento.fotografias.first.imagen_url(:thumb).to_s, width: 120
+            .foto= link_to (image_tag evento.fotografias.first.imagen_url(:thumb).to_s, width: 120), evento_path(evento)
             .resumen= truncate evento.resumen, length: 120
             .ver_mas= link_to 'Ver más', evento_path(evento)
             .fecha= l evento.fecha_y_hora, format: :short
