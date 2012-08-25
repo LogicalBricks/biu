@@ -60,6 +60,13 @@ gem 'awesome_nested_fields'
 
 gem "watu_table_builder", :require => "table_builder"
 
+gem 'sunspot_rails'
+
+group :development do
+  gem 'sunspot_solr'
+end
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
