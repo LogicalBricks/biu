@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Evento do
   it { should belong_to(:localidad) }
   it { should have_many(:fotografias) }
+  it { should have_one(:localizacion) }
 
   it { should validate_presence_of(:nombre) }
   it { should validate_presence_of(:resumen) }

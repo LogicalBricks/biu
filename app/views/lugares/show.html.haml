@@ -25,4 +25,7 @@
     %p.lugar_descripcion
       %strong Descripción:
       = @lugar.descripcion
+    
+    = gmaps(@marker)
 
+= yield :scripts

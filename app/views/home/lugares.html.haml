@@ -33,3 +33,6 @@
             %p
               = truncate lugar.resumen, length: 120
               = link_to 'Ver más', lugar_path(lugar)
+
+= gmaps4rails(@markers)
+= yield :scripts

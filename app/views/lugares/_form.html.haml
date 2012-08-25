@@ -1,5 +1,5 @@
 = form_for (@lugar, html: { class: 'form-horizontal'}) do |f|
-  = render 'error_messages', :target => @access_point
+  = render 'error_messages', :target => @lugar
   %fieldset
     .control-group
       = f.label :nombre
@@ -14,6 +14,11 @@
       .controls
         = f.text_area :descripcion
 
+    = render 'localizacion/localizacion_fields', :f => f
+
     = render 'fotografias/fotografias_fields', :f => f
   .form-actions
-      = f.submit 'Guardar', class: 'btn btn-primary'
+    = f.submit 'Guardar', class: 'btn btn-primary'
+
+= gmaps4rails(@marker)
+= yield :scripts
