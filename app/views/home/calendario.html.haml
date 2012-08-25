@@ -10,6 +10,6 @@
           = content_tag :div, class: (eventos.size > 1 ? 'multiple' : 'single') do
             - nombres = eventos.collect(&:nombre).to_sentence
             - evento = eventos.first
-            = link_to image_tag(evento.fotografias.first.imagen_url(:thumb).to_s, title: nombres, data: {placement: 'bottom'}), evento_path(evento) if eventos.size > 0
+            = link_to_evento evento, nombres if eventos.size > 0
 
 .span1= link_to 'Mes siguiente', '/calendario/' + @next_month

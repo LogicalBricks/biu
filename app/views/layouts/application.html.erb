@@ -24,9 +24,9 @@
           <div class="nav-collapse">
             <%#= tabs %>
           </div>          
-          <form class="navbar-search pull-right">
-            <input type="text" class="search-query" placeholder="Buscar">
-          </form>
+          <%= form_tag buscar_eventos_path, method: :get, class: 'navbar-search pull-right' do %>
+            <%= text_field_tag :buscar, nil, class: 'search-query', placeholder: 'Buscar' %>
+          <% end %>
         </div>
       </div>
     </div>

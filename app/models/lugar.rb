@@ -6,8 +6,14 @@ class Lugar < ActiveRecord::Base
   belongs_to :localidad
 
   accepts_nested_attributes_for :fotografias, allow_destroy: true
+
   # Validations
   validates :nombre, :resumen, :descripcion, presence: true
   validates :nombre, :resumen, length: {maximum: 255}
   validates :descripcion, length: {maximum: 2500}
+
+  # Solr
+  searchable do
+    text :nombre, :resumen, :descripcion
+  end
 end

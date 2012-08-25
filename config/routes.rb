@@ -9,7 +9,11 @@ Biu::Application.routes.draw do
 
   resources :lugares
 
-  resources :eventos
+  resources :eventos do
+    collection do
+      get :buscar
+    end
+  end
 
   resources :localidades
 

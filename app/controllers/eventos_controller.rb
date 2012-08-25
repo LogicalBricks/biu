@@ -80,4 +80,22 @@ class EventosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /eventos/buscar
+  # GET /eventos/buscar.json
+  def buscar
+    @busqueda = params[:buscar]
+    search = Evento.search do
+      fulltext params[:buscar]
+    end
+
+    @eventos = search.results
+
+
+    search = Lugar.search do
+      fulltext params[:buscar]
+    end
+
+    @lugares = search.results
+  end
 end

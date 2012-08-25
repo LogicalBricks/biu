@@ -14,5 +14,14 @@ class Evento < ActiveRecord::Base
 
   # Scopes
   scope :proximos, where('fecha_y_hora >= ? AND fecha_y_hora < ?', Time.now, 2.weeks.from_now).order(:fecha_y_hora)
-  scope :del_mes, where('fecha_y_hora >= ? AND fecha_y_hora < ?', Date.today.beginning_of_month, Date.today.next_month.beginning_of_month).order(:fecha_y_hora)
+  scope :del_mes, where(
+    'fecha_y_hora >= ? AND fecha_y_hora < ?', 
+    Date.today.beginning_of_month, 
+    Date.today.next_month.beginning_of_month
+  ).order(:fecha_y_hora)
+
+  # Solr
+  searchable do
+    text :nombre, :resumen, :descripcion
+  end
 end
