@@ -5,16 +5,9 @@ class HomeController < ApplicationController
   
   def calendario
     # Date is built from param
-    month = params[:month].blank? ? Date.today.month : params[:month]
-    year = params[:year].blank? ? Date.today.year : params[:year]
-    day = 1
-    @date = "#{year}/#{month}/#{day}".to_date
+    @date = build_date_from params
 
-    if params[:month].nil? and params[:year].nil?
-      @eventos = Evento.del_mes
-    else
-      @eventos = Evento.del_mes @date
-    end
+    @eventos = Evento.del_mes @date
   end
   
   def lugares
@@ -23,5 +16,20 @@ class HomeController < ApplicationController
 
   def lugares_all
     @lugares = Lugar.all
+  end
+
+  ##############################
+  private
+  ##############################
+
+  def build_date_from value
+    if value[:month].blank? or value[:year].blank?
+      Date.today
+    else
+      month = value[:month]
+      year  = value[:year]
+      day   = 1
+      "#{year}/#{month}/#{day}".to_date
+    end
   end
 end

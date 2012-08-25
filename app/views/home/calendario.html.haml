@@ -3,7 +3,7 @@
 .span9
   #calendar
     = calendar_for(@eventos, :year => @date.year, :month => @date.month, html: { class: 'table table-bordered' }) do |t|
-      = t.head('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sábado', 'domingo')
+      = t.head('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo')
       = t.day(day_method: :fecha_y_hora) do |fecha, eventos|
         - if fecha.month == @date.month
           = fecha.day

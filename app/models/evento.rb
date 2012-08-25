@@ -15,6 +15,10 @@ class Evento < ActiveRecord::Base
   # Scopes
   scope :proximos, where('fecha_y_hora >= ? AND fecha_y_hora < ?', Time.now, 2.weeks.from_now).order(:fecha_y_hora)
 
+  # Solr
+  searchable do
+    text :nombre, :resumen, :descripcion
+  end
 
   # Methods
   def self.del_mes date = nil
