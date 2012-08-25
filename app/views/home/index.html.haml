@@ -1,12 +1,13 @@
-.span6
+.span7
+  %h3 Eventos a realizarse en las próximas semanas
   #FotosCarousel.carousel.slide   
     .carousel-inner
       - first_element = true
-      - ev = @eventos.all[1...5]
+      - ev = eventos_principales
       - ev.each do |e| 
         - e.fotografias.each do |f| 
           = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
-            = image_tag(f.imagen_url(:medium).to_s) 
+            = image_tag(f.imagen_url(:medium).to_s, width: 660) 
             .carousel-caption
               %h4
                 = f.titulo

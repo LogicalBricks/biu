@@ -1,5 +1,5 @@
 class Lugar < ActiveRecord::Base
-  attr_accessible :descripcion, :nombre, :resumen, :fotografias_attributes
+  attr_accessible :descripcion, :nombre, :resumen, :fotografias_attributes, :localizacion_attributes
 
   # Associations
   belongs_to :localidad
@@ -14,4 +14,9 @@ class Lugar < ActiveRecord::Base
   validates :nombre, :resumen, :descripcion, presence: true
   validates :nombre, :resumen, length: {maximum: 255}
   validates :descripcion, length: {maximum: 2500}
+
+  # Solr
+  searchable do
+    text :nombre, :resumen, :descripcion
+  end
 end
