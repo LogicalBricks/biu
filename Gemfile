@@ -26,7 +26,7 @@ gem 'rieles', github: 'LogicalBricks/rieles'
 gem 'haml-rails'
 
 gem 'jquery-rails'
-gem 'jquery-datatables-rails', :git => 'git://github.com/rweng/jquery-datatables-rails'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'cancan'
 
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails'

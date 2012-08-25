@@ -18,7 +18,7 @@ GIT
     rieles (0.0.4)
 
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails
+  remote: git://github.com/rweng/jquery-datatables-rails.git
   revision: a6bde0aed270e9d3dac239d331f84f9c22817750
   specs:
     jquery-datatables-rails (1.10.0)
