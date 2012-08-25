@@ -1,0 +1,35 @@
+.row.page-header
+  .span7
+    %h1 Lugares recomendados de Oaxaca
+  .span5
+    = link_to 'Todos los lugares', '/home/lugares_all', class: 'btn btn-primary'
+.row
+  .span6
+    #FotosCarousel.carousel.slide   
+      .carousel-inner
+        - first_element = true
+        - lugares = @lugares[1...5]
+        - lugares.each do |lugar| 
+          - lugar.fotografias.each do |f| 
+            = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
+              = image_tag(f.imagen_url(:medium).to_s) 
+              .carousel-caption
+                %h4
+                  = f.titulo
+                %p
+                  = f.descripcion
+              - first_element = false
+      = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
+      = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
+
+  .lugares
+    %ul.thumbnails  
+
+      - @lugares[5...11].each do |lugar|
+        %li.span3
+          .thumbnail
+            = link_to image_tag(lugar.fotografias[0].imagen_url(:medium).to_s, width: 80), lugar_path(lugar)
+            %h3= lugar.nombre
+            %p
+              = truncate lugar.resumen, length: 120
+              = link_to 'Ver más', lugar_path(lugar)

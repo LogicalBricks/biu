@@ -1,15 +1,28 @@
-%p#notice= notice
+.row.page-header
+  .span12
+    %h1
+      = @lugar.nombre
+.row
+  .span7
+    #FotosCarousel.carousel.slide
+      .carousel-inner
+        - first_element = true
+        - @lugar.fotografias.each do |f|
+          = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
+            = image_tag(f.imagen_url(:medium).to_s) 
+            .carousel-caption
+              %h4
+                = f.titulo
+              %p
+                = f.descripcion
+            - first_element = false
+      = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
+      = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
+  .span5 
+    %p.lugar_resumen
+      %strong Resumen:
+      = @lugar.resumen
+    %p.lugar_descripcion
+      %strong Descripción:
+      = @lugar.descripcion
 
-%p
-  %b Nombre:
-  = @lugar.nombre
-%p
-  %b Resumen:
-  = @lugar.resumen
-%p
-  %b Descripcion:
-  = @lugar.descripcion
-
-= link_to 'Edit', edit_lugar_path(@lugar)
-\|
-= link_to 'Back', lugares_path

@@ -24,4 +24,12 @@ class HomeController < ApplicationController
     @year = date.year
     @month = date.month
   end
+  
+  def lugares
+    @lugares = Lugar.all
+  end
+
+  def lugares_all
+    @lugares = Lugar.all
+  end
 end

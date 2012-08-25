@@ -4,6 +4,8 @@ Biu::Application.routes.draw do
   match 'calendario' => 'home#calendario'
 
   get "home/index"
+  get "home/lugares"
+  get "home/lugares_all"
 
   resources :lugares
 

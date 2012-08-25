@@ -12,11 +12,12 @@ namespace :db do
  
     Evento.populate 500 do |evento|
       evento.nombre = Populator.words(1..3).titleize
+      evento.lugar = Populator.words(1..3)
       evento.resumen = Populator.sentences(5..8)
       evento.descripcion= Populator.paragraphs(1..3)
       evento.fecha_y_hora = 5.months.ago..1.year.from_now
       evento.costo = [ 100.00, 500.00, 1000.00, 300.00, 400.00, 0.00 ]
-      2.times do
+      rand(2..5).times do
         foto = Fotografia.new
         foto.imagen = File.open(fotos.sample)
 
@@ -28,5 +29,22 @@ namespace :db do
       end
     end 
 
+     Lugar.populate 50 do |lugar|
+      lugar.nombre = Populator.words(1..3).titleize
+      lugar.resumen = Populator.sentences(5..8)
+      lugar.descripcion= Populator.paragraphs(1..3)
+      rand(2..5).times do
+        foto = Fotografia.new
+        foto.imagen = File.open(fotos.sample)
+
+        foto.titulo = Populator.words(1..3)
+        foto.descripcion = Populator.sentences(1..3)
+        foto.fotografiable_id = lugar.id
+        foto.fotografiable_type = "Lugar"
+        foto.save!
+      end
+    end 
+
+    
   end
 end

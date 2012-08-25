@@ -3,11 +3,13 @@
     %h1
       = @evento.nombre
   .span5
-    %h2
-      = @evento.fecha_y_hora.strftime('%d/%m/%Y - %l:%M%p')
+    %h3
+      = l @evento.fecha_y_hora, format: :short
       %small
         Costo:
         = number_to_currency @evento.costo
+    %h3
+      = @evento.lugar
 .row
   .span7
     #FotosCarousel.carousel.slide   

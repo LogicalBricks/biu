@@ -1,23 +1,21 @@
-%h1 Listing lugares
+.row
+  .span5
+    %h1 Lugares
+  .span7
+    = link_to 'Crear Lugar', new_lugar_path, class: 'btn btn-primary'
 
-%table
+%table.table.table-striped.table-bordered.table-hover
   %tr
     %th Nombre
-    %th Resumen
-    %th Descripcion
-    %th
-    %th
     %th
 
   - @lugares.each do |lugar|
     %tr
       %td= lugar.nombre
-      %td= lugar.resumen
-      %td= lugar.descripcion
-      %td= link_to 'Show', lugar
-      %td= link_to 'Edit', edit_lugar_path(lugar)
-      %td= link_to 'Destroy', lugar, :confirm => 'Are you sure?', :method => :delete
+      %td.btn-group
+        = link_to 'Mostrar', lugar, class: 'btn'
+        = link_to 'Editar', edit_lugar_path(lugar), class: 'btn'
+        = link_to 'Borrar', lugar, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'
 
-%br
-
-= link_to 'New Lugar', new_lugar_path
+.form-actions
+  = link_to 'Crear Lugar', new_lugar_path, class: 'btn btn-primary'

@@ -5,6 +5,7 @@ class CreateLugares < ActiveRecord::Migration
       t.text :resumen
       t.text :descripcion
 
+      t.references :localidad
       t.timestamps
     end
   end

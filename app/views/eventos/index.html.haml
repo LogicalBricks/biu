@@ -1,26 +1,26 @@
-%h1 Listing eventos
-
-%table
+.row
+  .span5
+    %h1 Eventos
+  .span7
+    = link_to 'Crear Evento', new_evento_path, class:'btn btn-primary pull-right'
+%table.table.table-striped.table-bordered.table-hover
   %tr
     %th Nombre
-    %th Resumen
-    %th Descripcion
     %th Fecha y hora
     %th Costo
+    %th Lugar
     %th
 
   - @eventos.each do |evento|
     %tr
       %td= evento.nombre
-      %td= evento.resumen
-      %td= evento.descripcion
       %td= evento.fecha_y_hora
       %td= evento.costo
+      %td= evento.lugar
       %td.btn-group
-        = link_to 'Show', evento, class: 'btn'
-        = link_to 'Edit', edit_evento_path(evento), class: 'btn'
-        = link_to 'Destroy', evento, :confirm => 'Are you sure?', :method => :delete, class: 'btn'
+        = link_to 'Mostrar', evento, class: 'btn'
+        = link_to 'Editar', edit_evento_path(evento), class: 'btn'
+        = link_to 'Borrar', evento, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger'
 
-%br
-
-= link_to 'New Evento', new_evento_path, class:'btn btn-primary'
+.form-actions
+  = link_to 'Crear Evento', new_evento_path, class:'btn btn-primary'
