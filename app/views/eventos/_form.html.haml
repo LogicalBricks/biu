@@ -26,6 +26,12 @@
       .controls
         = f.text_field :costo
 
+    = render 'localizacion/localizacion_fields', :f => f
+
     = render 'fotografias/fotografias_fields', :f => f
+
   .form-actions
     = f.submit 'Guardar', class: 'btn btn-primary'
+
+= gmaps4rails(@marker)
+= yield :scripts

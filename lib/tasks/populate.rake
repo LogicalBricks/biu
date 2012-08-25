@@ -10,7 +10,7 @@ namespace :db do
     
     [Evento, Lugar, Fotografia, Localidad, Localizacion].each(&:delete_all)
  
-    Evento.populate 300 do |evento|
+    Evento.populate 50 do |evento|
       evento.nombre = Populator.words(1..3).titleize
       evento.lugar = Populator.words(1..3)
       evento.resumen = Populator.sentences(5..8)
@@ -27,6 +27,14 @@ namespace :db do
         foto.fotografiable_type = "Evento"
         foto.save!
       end
+      localizacion = Localizacion.new
+      latlong = random_latitude_longitude()
+      localizacion.latitude = latlong['lat']
+
+      localizacion.longitude = latlong['long']
+      localizacion.localizable_id = evento.id
+      localizacion.localizable_type = "Evento"
+      localizacion.save!
     end 
 
      Lugar.populate 50 do |lugar|
@@ -43,8 +51,27 @@ namespace :db do
         foto.fotografiable_type = "Lugar"
         foto.save!
       end
+      localizacion = Localizacion.new
+      latlong = random_latitude_longitude()
+      localizacion.latitude = latlong['lat']
+
+      localizacion.longitude = latlong['long']
+      localizacion.localizable_id = lugar.id
+      localizacion.localizable_type = "Lugar"
+      localizacion.save!
+
     end 
 
-    
   end
+
+  def random_latitude_longitude 
+    latlong = {}
+    latitude_width =18.312810846425442 - 15.62832697885264
+    latlong['lat'] = (rand()*latitude_width)+15.62832697885264
+
+    longitude_width = -94.1363525390625 - -98.4649658203125 
+    latlong['long'] = longitude_random = (rand()*latitude_width) + -98.4649658203125
+    latlong
+  end    
+
 end

@@ -14,7 +14,18 @@ class LugaresController < ApplicationController
   # GET /lugares/1.json
   def show
     @lugar = Lugar.find(params[:id])
-
+    @marker = {
+      map_options: {
+      auto_zoom: false,
+      zoom: 15,
+      center_latitude: @lugar.localizacion.latitude,
+      center_longitude: @lugar.localizacion.longitude
+    },
+      markers: {
+      data: @lugar.localizacion.to_gmaps4rails
+    }
+    }
+ 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lugar }
@@ -25,6 +36,8 @@ class LugaresController < ApplicationController
   # GET /lugares/new.json
   def new
     @lugar = Lugar.new
+    @lugar.localizacion = Localizacion.new
+    @marker = []
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +48,7 @@ class LugaresController < ApplicationController
   # GET /lugares/1/edit
   def edit
     @lugar = Lugar.find(params[:id])
+    @marker = @lugar.localizacion.to_gmaps4rails
   end
 
   # POST /lugares
@@ -47,6 +61,7 @@ class LugaresController < ApplicationController
         format.html { redirect_to @lugar, notice: 'Lugar was successfully created.' }
         format.json { render json: @lugar, status: :created, location: @lugar }
       else
+        @marker = []
         format.html { render action: "new" }
         format.json { render json: @lugar.errors, status: :unprocessable_entity }
       end
@@ -63,6 +78,7 @@ class LugaresController < ApplicationController
         format.html { redirect_to @lugar, notice: 'Lugar was successfully updated.' }
         format.json { head :no_content }
       else
+        @marker = @lugar.localizacion.to_gmaps4rails
         format.html { render action: "edit" }
         format.json { render json: @lugar.errors, status: :unprocessable_entity }
       end

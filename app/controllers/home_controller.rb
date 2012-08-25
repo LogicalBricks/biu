@@ -12,6 +12,7 @@ class HomeController < ApplicationController
   
   def lugares
     @lugares = Lugar.all
+    @markers = @lugares[0..10].collect(&:localizacion).to_gmaps4rails
   end
 
   def lugares_all

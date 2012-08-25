@@ -3,7 +3,7 @@ class EventosController < ApplicationController
   # GET /eventos.json
   def index
     @eventos = Evento.all
-
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @eventos }
@@ -14,6 +14,18 @@ class EventosController < ApplicationController
   # GET /eventos/1.json
   def show
     @evento = Evento.find(params[:id])
+    @marker = {
+      map_options: {
+      auto_zoom: false,
+      zoom: 15,
+      center_latitude: @evento.localizacion.latitude,
+      center_longitude: @evento.localizacion.longitude
+    },
+      markers: {
+      data: @evento.localizacion.to_gmaps4rails
+    }
+    }
+    #@marker = @evento.localizacion.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +37,8 @@ class EventosController < ApplicationController
   # GET /eventos/new.json
   def new
     @evento = Evento.new
-
+    @evento.localizacion = Localizacion.new
+    @marker = []
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evento }
@@ -35,6 +48,7 @@ class EventosController < ApplicationController
   # GET /eventos/1/edit
   def edit
     @evento = Evento.find(params[:id])
+    @marker = @evento.localizacion.to_gmaps4rails
   end
 
   # POST /eventos
@@ -44,9 +58,10 @@ class EventosController < ApplicationController
 
     respond_to do |format|
       if @evento.save
-        format.html { redirect_to @evento, notice: 'Evento was successfully created.' }
+        format.html { redirect_to @evento, notice: 'El Evento fue guardado correctamente.' }
         format.json { render json: @evento, status: :created, location: @evento }
       else
+        @marker = []
         format.html { render action: "new" }
         format.json { render json: @evento.errors, status: :unprocessable_entity }
       end
@@ -60,9 +75,10 @@ class EventosController < ApplicationController
 
     respond_to do |format|
       if @evento.update_attributes(params[:evento])
-        format.html { redirect_to @evento, notice: 'Evento was successfully updated.' }
+        format.html { redirect_to @evento, notice: 'El Evento fue guardado correctamente.' }
         format.json { head :no_content }
       else
+        @marker = @evento.localizacion.to_gmaps4rails
         format.html { render action: "edit" }
         format.json { render json: @evento.errors, status: :unprocessable_entity }
       end
