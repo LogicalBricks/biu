@@ -30,3 +30,5 @@ lib/fotos
 # Development sorl
 /solr/data
 /solr/pids
+
+.sass-cache/

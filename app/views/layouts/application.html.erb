@@ -13,18 +13,19 @@
   <body>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
           <%= link_to 'Biu', root_path, class: 'brand' %>
-          <%= link_to 'Eventos', root_path, class: 'brand' %>
-          <%= link_to 'Lugares', '/home/lugares', class: 'brand' %>
-          <%= link_to 'Calendario', calendario_path, class: 'brand' %>
           <div class="nav-collapse">
-            <%#= tabs %>
+            <ul class="nav">
+              <%= link_to 'Eventos', root_path, class: 'brand' %>
+              <%= link_to 'Lugares', '/home/lugares', class: 'brand' %>
+              <%= link_to 'Calendario', calendario_path, class: 'brand' %>
+            </ul>
           </div>          
           <%= form_tag buscar_eventos_path, method: :get, class: 'navbar-search pull-right' do %>
             <%= text_field_tag :buscar, nil, class: 'search-query', placeholder: 'Buscar' %>
