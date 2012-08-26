@@ -19,12 +19,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%= link_to 'Biu', root_path, class: 'brand' %>
-          <%= link_to 'Calendario', calendario_path, class: 'brand' %>
-          <%= link_to 'Lugares', '/home/lugares', class: 'brand' %>
           <div class="nav-collapse">
+            <ul class="nav">
+              <%= link_to 'Biu', root_path, class: 'brand' %>
+              <li><%= link_to 'Calendario', calendario_path %></li>
+              <li><%= link_to 'Lugares', '/home/lugares' %></li>
+            </ul>
             <%#= tabs %>
-          </div>          
+          </div>
           <%= form_tag buscar_eventos_path, method: :get, class: 'navbar-search pull-right' do %>
             <%= text_field_tag :buscar, nil, class: 'search-query', placeholder: 'Buscar' %>
           <% end %>
