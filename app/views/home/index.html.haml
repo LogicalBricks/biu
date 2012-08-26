@@ -1,5 +1,6 @@
-.span7
+.page-header
   %h3 Eventos a realizarse en las próximas semanas
+.span7
   #FotosCarousel.carousel.slide   
     .carousel-inner
       - first_element = true
@@ -17,6 +18,20 @@
     = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
     = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
 
+.eventos
+  %ul.thumbnails
+    - @eventos.each do |evento|
+      #li.span3
+        .thumbnail
+          %h5
+            = evento.nombre
+            %small= l evento.fecha_y_hora, format: :short
+          .foto= link_to image_tag(evento.fotografias[0].imagen_url(:medium).to_s, width: 150), evento_path(evento)
+          %p
+            = truncate evento.resumen, length: 120
+            %small= link_to 'Ver más', evento_path(evento)
+
+<!--
 .eventos
   - @eventos.each do |evento|
     .preview
