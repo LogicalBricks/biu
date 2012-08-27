@@ -1,37 +1,14 @@
 .row.page-header
   .span12
     %h1 Lugares recomendados de Oaxaca
-    = link_to 'Todos los lugares', '/home/lugares_all', class: 'btn btn-primary pull-right'
-.row
-  .span6
-    #FotosCarousel.carousel.slide   
-      .carousel-inner
-        - first_element = true
-        - lugares = @lugares[1...5]
-        - lugares.each do |lugar| 
-          - lugar.fotografias.each do |f| 
-            = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
-              = image_tag(f.imagen_url(:medium).to_s) 
-              .carousel-caption
-                %h4
-                  = f.titulo
-                %p
-                  = f.descripcion
-              - first_element = false
-      = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
-      = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
+    = link_to_unless params[:view].blank?, 'Normal', params.merge(:view => ""), :title => "Normal"
+    = link_to_unless params[:view] == 'thumbnail', 'Thumbnail', params.merge(:view => "thumbnail"), :title => "Thumbnail"
+    = link_to_unless params[:view] == 'list', 'Lista', params.merge(:view => "list"), :title => "list"
+    = link_to_unless params[:view] == 'mapa', 'Mapa', params.merge(:view => "mapa"), :title => "mapa"
 
-  .lugares
-    %ul.thumbnails
+= render 'normal_lugares' if params[:view].blank?
+= render 'list_lugares' if params[:view] == 'list'
+= render 'thumbnail_lugares' if params[:view] == 'thumbnail'
+= render 'mapa_lugares' if params[:view] == 'mapa'
 
-      - @lugares[5...11].each do |lugar|
-        %li.span3
-          .thumbnail
-            %h5= lugar.nombre
-            = link_to image_tag(lugar.fotografias[0].imagen_url(:medium).to_s, width: 80), lugar_path(lugar)
-            %p
-              = truncate lugar.resumen, length: 120
-              %small= link_to 'Ver más', lugar_path(lugar)
 
-= gmaps4rails(@markers)
-= yield :scripts

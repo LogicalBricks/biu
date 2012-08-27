@@ -1,0 +1,17 @@
+.row
+  .span12
+    %table#datatables-lugares.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th  
+          %th Nombre
+          %th Resumen
+      %tbody
+        - @lugares.each do |lugar|
+          %tr
+            %td
+              .foto= link_to image_tag(lugar.fotografias[0].imagen_url(:medium).to_s, width: 80), lugar_path(lugar)
+            %td= link_to lugar.nombre, lugar_path(lugar)
+            %td
+              = lugar.resumen
+

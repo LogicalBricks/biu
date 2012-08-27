@@ -1,32 +1,14 @@
 .row.page-header
   %h3 Eventos a realizarse en las próximas semanas
+  = link_to_unless params[:view].blank?, 'Normal', params.merge(:view => ""), :title => "Normal"
+  = link_to_unless params[:view] == 'thumbnail', 'Thumbnail', params.merge(:view => "thumbnail"), :title => "Thumbnail"
+  = link_to_unless params[:view] == 'list', 'Lista', params.merge(:view => "list"), :title => "list"
+  = link_to_unless params[:view] == 'mapa', 'Mapa', params.merge(:view => "mapa"), :title => "mapa"
 
-.row
-  .span6
-    #FotosCarousel.carousel.slide   
-      .carousel-inner
-        - first_element = true
-        - ev = eventos_principales
-        - ev.each do |e| 
-          - e.fotografias.each do |f| 
-            = content_tag(:div, class: (first_element) ? 'item active' : 'item') do
-              = image_tag(f.imagen_url(:medium).to_s, width: 660) 
-              .carousel-caption
-                %h4
-                  = f.titulo
-                %p
-                  = f.descripcion
-              - first_element = false
-      = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
-      = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
+= render 'normal_eventos' if params[:view].blank?
+= render 'list_eventos' if params[:view] == 'list'
+= render 'thumbnail_eventos' if params[:view] == 'thumbnail'
+= render 'mapa_eventos' if params[:view] == 'mapa'
 
-  .eventos
-    %ul.thumbnails
-      - @eventos.each do |evento|
-        %li.span3
-          .thumbnail
-            .nombre= evento.nombre
-            .foto= link_to image_tag(evento.fotografias.first.imagen_url(:medium).to_s, width: 80), evento_path(evento)
-            .resumen= truncate evento.resumen, length: 120
-            .ver_mas= link_to 'Ver más', evento_path(evento)
-            .fecha= l evento.fecha_y_hora, format: :short
+
+
