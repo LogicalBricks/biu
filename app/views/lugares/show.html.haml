@@ -44,13 +44,14 @@
         %li
           %b= hotel.nombre
           %i= hotel.telefono
+          %i= render_stars hotel.clasificacion
           %br
 
   .span3
     %h5 Restaurantes
     %hr
     %ul
-      - @hoteles.each do |hotel|
+      - @restaurantes.each do |hotel|
         %li
           %b= hotel.nombre
           %i= hotel.telefono

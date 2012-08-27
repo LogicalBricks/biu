@@ -4,4 +4,5 @@ class Localidad < ActiveRecord::Base
   # Association
   has_many :lugares
   has_many :hoteles
+  has_many :restaurantes
 end

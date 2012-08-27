@@ -1,0 +1,35 @@
+%h1 Listado de Restaurantes
+
+- if @restaurantes.any?
+  %table
+    %thead
+      %tr
+        %th Nombre
+        %th Resumen
+        %th Descripcion
+        %th Clasificacion
+        %th Localidad
+        %th Telefono
+        %th
+        %th
+        %th
+
+    %tbody
+      - @restaurantes.each do |restaurante|
+        %tr
+          %td= restaurante.nombre
+          %td= restaurante.resumen
+          %td= restaurante.descripcion
+          %td= number_with_delimiter restaurante.clasificacion
+          %td= restaurante.localidad
+          %td= restaurante.telefono
+          %td= link_to 'Mostrar', restaurante
+          %td= link_to 'Editar', edit_restaurante_path(restaurante)
+          %td= link_to 'Eliminar', restaurante, method: :delete, data: { confirm: '¿Estás seguro?' }
+- else
+  %div
+    %h3 No se encontraron Restaurantes
+
+%br
+
+= link_to "Nuevo Restaurante", new_restaurante_path
