@@ -1,0 +1,37 @@
+%h1 Listado de Transportes
+
+- if @transportes.any?
+  %table
+    %thead
+      %tr
+        %th Nombre
+        %th Resumen
+        %th Descripcion
+        %th Clasificacion
+        %th Localidad
+        %th Telefono
+        %th Horarios
+        %th
+        %th
+        %th
+
+    %tbody
+      - @transportes.each do |transporte|
+        %tr
+          %td= transporte.nombre
+          %td= transporte.resumen
+          %td= transporte.descripcion
+          %td= number_with_delimiter transporte.clasificacion
+          %td= transporte.localidad
+          %td= transporte.telefono
+          %td= transporte.horarios
+          %td= link_to 'Mostrar', transporte
+          %td= link_to 'Editar', edit_transporte_path(transporte)
+          %td= link_to 'Eliminar', transporte, method: :delete, data: { confirm: '¿Estás seguro?' }
+- else
+  %div
+    %h3 No se encontraron Transportes
+
+%br
+
+= link_to "Nuevo Transporte", new_transporte_path

@@ -1,4 +1,6 @@
 Biu::Application.routes.draw do
+  resources :transportes
+
   resources :restaurantes
 
   resources :hoteles
