@@ -11,5 +11,17 @@ require 'spec_helper'
 #   end
 # end
 describe HomeHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'link' do
+    before :each do
+      @date = "2012/9/24".to_date
+    end
+
+    it 'generates a link to next month' do
+      helper.link_to_next_month(@date).should == "<a href=\"/calendario/2012/10\">octubre</a>"
+    end
+
+    it 'generates a link to previous month' do
+      helper.link_to_previous_month(@date).should == "<a href=\"/calendario/2012/8\">agosto</a>"
+    end
+  end
 end

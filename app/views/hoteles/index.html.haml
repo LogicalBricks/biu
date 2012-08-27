@@ -1,0 +1,39 @@
+%h1 Listado de Hoteles
+
+- if @hoteles.any?
+  %table
+    %thead
+      %tr
+        %th Nombre
+        %th Resumen
+        %th Descripcion
+        %th Clasificacion
+        %th Total habitaciones
+        %th Localidad
+        %th Costo
+        %th Telefono
+        %th
+        %th
+        %th
+
+    %tbody
+      - @hoteles.each do |hotel|
+        %tr
+          %td= hotel.nombre
+          %td= hotel.resumen
+          %td= hotel.descripcion
+          %td= number_with_delimiter hotel.clasificacion
+          %td= number_with_delimiter hotel.total_habitaciones
+          %td= hotel.localidad
+          %td= number_with_delimiter hotel.costo
+          %td= hotel.telefono
+          %td= link_to 'Mostrar', hotel
+          %td= link_to 'Editar', edit_hotel_path(hotel)
+          %td= link_to 'Eliminar', hotel, method: :delete, data: { confirm: '¿Estás seguro?' }
+- else
+  %div
+    %h3 No se encontraron Hoteles
+
+%br
+
+= link_to "Nuevo Hotel", new_hotel_path

@@ -16,16 +16,18 @@ class LugaresController < ApplicationController
     @lugar = Lugar.find(params[:id])
     @marker = {
       map_options: {
-      auto_zoom: false,
-      zoom: 15,
-      center_latitude: @lugar.localizacion.latitude,
-      center_longitude: @lugar.localizacion.longitude
-    },
+        auto_zoom: false,
+        zoom: 15,
+        center_latitude: @lugar.localizacion.latitude,
+        center_longitude: @lugar.localizacion.longitude
+      },
       markers: {
-      data: @lugar.localizacion.to_gmaps4rails
+        data: @lugar.localizacion.to_gmaps4rails
+      }
     }
-    }
- 
+    @hoteles = @lugar.localidad.hoteles if @lugar.localidad
+    @hoteles ||= []
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lugar }

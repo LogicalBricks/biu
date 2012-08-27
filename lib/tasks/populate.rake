@@ -5,14 +5,18 @@ namespace :db do
     require 'faker'
 
     fotos_path = File.join(Rails.root, 'lib', 'fotos')
-    fotos = Dir.glob(fotos_path+'/*')
+    fotos = Dir.glob(fotos_path + '/*')
 
-    
+
     [Evento, Lugar, Fotografia, Localidad, Localizacion].each(&:delete_all)
- 
-    Evento.populate 50 do |evento|
-      evento.nombre = Populator.words(1..3).titleize
-      evento.lugar = Populator.words(1..3)
+
+    Localidad.populate 50 do |localidad|
+      localidad.nombre = Populator.words(1..5).titleize
+    end
+
+    Evento.populate 300 do |evento|
+      evento.nombre = Populator.words(1..5).titleize
+      evento.lugar = Populator.words(1..5)
       evento.resumen = Populator.sentences(5..8)
       evento.descripcion= Populator.paragraphs(1..3)
       evento.fecha_y_hora = 3.months.ago..5.months.from_now
@@ -21,8 +25,8 @@ namespace :db do
         foto = Fotografia.new
         foto.imagen = File.open(fotos.sample)
 
-        foto.titulo = Populator.words(1..3)
-        foto.descripcion = Populator.sentences(1..3)
+        foto.titulo = Populator.words(1..5)
+        foto.descripcion = Populator.sentences(1..5)
         foto.fotografiable_id = evento.id
         foto.fotografiable_type = "Evento"
         foto.save!
@@ -37,15 +41,16 @@ namespace :db do
       localizacion.save!
     end 
 
-     Lugar.populate 50 do |lugar|
-      lugar.nombre = Populator.words(1..3).titleize
+    Lugar.populate 50 do |lugar|
+      lugar.nombre = Populator.words(1..5).titleize
       lugar.resumen = Populator.sentences(5..8)
       lugar.descripcion= Populator.paragraphs(1..3)
+      lugar.localidad_id = Localidad.pluck(:id)
       rand(2..5).times do
         foto = Fotografia.new
         foto.imagen = File.open(fotos.sample)
 
-        foto.titulo = Populator.words(1..3)
+        foto.titulo = Populator.words(1..5)
         foto.descripcion = Populator.sentences(1..3)
         foto.fotografiable_id = lugar.id
         foto.fotografiable_type = "Lugar"
@@ -62,15 +67,23 @@ namespace :db do
 
     end 
 
+    Hotel.populate 50 do |hotel|
+      hotel.nombre = Populator.words(1..5).titleize
+      hotel.resumen = Populator.sentences(1..5)
+      hotel.telefono = Populator.words(3)
+      hotel.clasificacion = rand(1..5)
+      hotel.localidad_id = Localidad.pluck(:id)
+    end
+
   end
 
   def random_latitude_longitude 
     latlong = {}
     latitude_width =18.312810846425442 - 15.62832697885264
-    latlong['lat'] = (rand()*latitude_width)+15.62832697885264
+    latlong['lat'] = (rand() * latitude_width) + 15.62832697885264
 
     longitude_width = -94.1363525390625 - -98.4649658203125 
-    latlong['long'] = longitude_random = (rand()*latitude_width) + -98.4649658203125
+    latlong['long'] = longitude_random = (rand() * latitude_width) + -98.4649658203125
     latlong
   end    
 

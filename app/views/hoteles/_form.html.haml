@@ -1,0 +1,37 @@
+= form_for(@hotel) do |f|
+  = render 'error_messages', target: @hotel
+
+  .field
+    = f.label :nombre
+    %br
+    = f.text_field :nombre
+  .field
+    = f.label :resumen
+    %br
+    = f.text_field :resumen
+  .field
+    = f.label :descripcion
+    %br
+    = f.text_area :descripcion
+  .field
+    = f.label :clasificacion
+    %br
+    = f.number_field :clasificacion
+  .field
+    = f.label :total_habitaciones
+    %br
+    = f.number_field :total_habitaciones
+  .field
+    = f.label :localidad
+    %br
+    = f.text_field :localidad
+  .field
+    = f.label :costo
+    %br
+    = f.text_field :costo
+  .field
+    = f.label :telefono
+    %br
+    = f.text_field :telefono
+  .actions
+    = f.submit

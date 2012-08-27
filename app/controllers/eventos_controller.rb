@@ -16,14 +16,14 @@ class EventosController < ApplicationController
     @evento = Evento.find(params[:id])
     @marker = {
       map_options: {
-      auto_zoom: false,
-      zoom: 15,
-      center_latitude: @evento.localizacion.latitude,
-      center_longitude: @evento.localizacion.longitude
-    },
+        auto_zoom: false,
+        zoom: 15,
+        center_latitude: @evento.localizacion.latitude,
+        center_longitude: @evento.localizacion.longitude
+      },
       markers: {
-      data: @evento.localizacion.to_gmaps4rails
-    }
+        data: @evento.localizacion.to_gmaps4rails
+      }
     }
     #@marker = @evento.localizacion.to_gmaps4rails
 

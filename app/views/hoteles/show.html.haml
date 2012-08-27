@@ -1,0 +1,37 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @hotel.nombre
+
+%p
+  %b Resumen:
+  = @hotel.resumen
+
+%p
+  %b Descripcion:
+  = @hotel.descripcion
+
+%p
+  %b Clasificacion:
+  = number_with_delimiter @hotel.clasificacion
+
+%p
+  %b Total habitaciones:
+  = number_with_delimiter @hotel.total_habitaciones
+
+%p
+  %b Localidad:
+  = @hotel.localidad
+
+%p
+  %b Costo:
+  = number_with_delimiter @hotel.costo
+
+%p
+  %b Telefono:
+  = @hotel.telefono
+
+= link_to 'Editar', edit_hotel_path(@hotel)
+\|
+= link_to 'Listado', hoteles_path

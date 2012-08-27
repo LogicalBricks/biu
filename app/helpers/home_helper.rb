@@ -10,10 +10,10 @@ module HomeHelper
   end
 
   def build_month_name date
-    (l @date.prev_month, format: :nombre_mes)
+    l date, format: :nombre_mes
   end
 
   def build_calendario_path date
-    "/calendario/#{date.prev_month.year}/#{@date.prev_month.month}"
+    "/calendario/#{date.year}/#{date.month}"
   end
 end

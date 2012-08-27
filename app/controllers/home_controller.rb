@@ -27,10 +27,7 @@ class HomeController < ApplicationController
     if value[:month].blank? or value[:year].blank?
       Date.today
     else
-      month = value[:month]
-      year  = value[:year]
-      day   = 1
-      "#{year}/#{month}/#{day}".to_date
+      "#{value[:year]}/#{value[:month]}/1".to_date
     end
   end
 end

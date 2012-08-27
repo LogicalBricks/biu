@@ -26,6 +26,51 @@
       %strong Descripción:
       = @lugar.descripcion
     
-    = gmaps(@marker)
+.row
+  = gmaps(@marker)
+
+.row
+  %br
+
+.row
+  .span3
+    %h5 Hoteles
+    %hr
+    %ul
+      - @hoteles.each do |hotel|
+        %li
+          %b= hotel.nombre
+          %i= hotel.telefono
+          %br
+
+  .span3
+    %h5 Restaurantes
+    %hr
+    %ul
+      - @hoteles.each do |hotel|
+        %li
+          %b= hotel.nombre
+          %i= hotel.telefono
+          %br
+
+  .span3
+    %h5 Transporte
+    %hr
+    %ul
+      - @hoteles.each do |hotel|
+        %li
+          %b= hotel.nombre
+          %i= hotel.telefono
+          %br
+
+  .span3
+    %h5 Servicios
+    %hr
+    %ul
+      - @hoteles.each do |hotel|
+        %li
+          %b= hotel.nombre
+          %i= hotel.telefono
+          %br
 
 = yield :scripts
