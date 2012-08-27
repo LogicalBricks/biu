@@ -22,7 +22,7 @@
       - @eventos.each do |evento|
         %li.span3
           .thumbnail
-            .nombre= evento.nombre
+            .nombre= link_to evento.nombre, evento_path(evento)
             .foto= link_to image_tag(evento.fotografias.first.imagen_url(:medium).to_s, width: 80), evento_path(evento)
             .resumen= truncate evento.resumen, length: 120
             .ver_mas= link_to 'Ver más', evento_path(evento)
