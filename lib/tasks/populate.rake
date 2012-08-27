@@ -4,8 +4,12 @@ namespace :db do
     require 'populator'
     require 'faker'
 
-    fotos_path = File.join(Rails.root, 'lib', 'fotos')
-    fotos = Dir.glob(fotos_path + '/*')
+    fotos_eventos_path = File.join(Rails.root, 'lib', 'fotos','eventos')
+    fotos_eventos = Dir.glob(fotos_eventos_path + '/*')
+
+    fotos_lugares_path = File.join(Rails.root, 'lib', 'fotos','lugares')
+    fotos_lugares = Dir.glob(fotos_lugares_path + '/*')
+
 
 
     [Evento, Lugar, Fotografia, Localidad, Localizacion].each(&:delete_all)
@@ -23,7 +27,7 @@ namespace :db do
       evento.costo = [ 100.00, 500.00, 1000.00, 300.00, 400.00, 0.00 ]
       rand(2..5).times do
         foto = Fotografia.new
-        foto.imagen = File.open(fotos.sample)
+        foto.imagen = File.open(fotos_eventos.sample)
 
         foto.titulo = Populator.words(1..5)
         foto.descripcion = Populator.sentences(1..5)
@@ -48,7 +52,7 @@ namespace :db do
       lugar.localidad_id = Localidad.pluck(:id)
       rand(2..5).times do
         foto = Fotografia.new
-        foto.imagen = File.open(fotos.sample)
+        foto.imagen = File.open(fotos_lugares.sample)
 
         foto.titulo = Populator.words(1..5)
         foto.descripcion = Populator.sentences(1..3)

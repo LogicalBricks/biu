@@ -19,6 +19,9 @@
       = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
       = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
   .span5 
+    = link_to 'Ubicacion', '#ubicacion' 
+    \|
+    = link_to 'Servicios', '#servicios'
     %p.lugar_resumen
       %strong Resumen:
       = @lugar.resumen
@@ -26,13 +29,13 @@
       %strong Descripción:
       = @lugar.descripcion
     
-.row
+#ubicacion.row
   = gmaps(@marker)
 
 .row
   %br
 
-.row
+#servicios.row
   .span3
     %h5 Hoteles
     %hr
