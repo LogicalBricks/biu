@@ -27,13 +27,17 @@
       = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
       = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
   .span5
+    = link_to 'Ubicacion', '#ubicacion'
+    \|
+    = link_to 'Servicios', '#servicios'
     %p.evento_resumen
       %strong Resumen:
       = @evento.resumen
     %p.evento_descripcion
       %strong Descripción:
       = @evento.descripcion
+#ubicacion
+  = gmaps(@marker)
+  = yield :scripts
+#servicios
 
-    = gmaps(@marker)
-
-= yield :scripts
