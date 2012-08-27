@@ -14,7 +14,7 @@ namespace :db do
       localidad.nombre = Populator.words(1..5).titleize
     end
 
-    Evento.populate 20 do |evento|
+    Evento.populate 50 do |evento|
       evento.nombre = Populator.words(1..5).titleize
       evento.lugar = Populator.words(1..5)
       evento.resumen = Populator.sentences(5..8)
@@ -71,8 +71,16 @@ namespace :db do
       hotel.nombre = Populator.words(1..5).titleize
       hotel.resumen = Populator.sentences(1..5)
       hotel.telefono = Populator.words(3)
-      hotel.clasificacion = rand(1..5)
+      hotel.clasificacion = [1, 2, 3, 4, 5]
       hotel.localidad_id = Localidad.pluck(:id)
+    end
+
+    Restaurante.populate 50 do |restaurante|
+      restaurante.nombre = Populator.words(1..5).titleize
+      restaurante.resumen = Populator.sentences(1..5)
+      restaurante.telefono = Populator.words(3)
+      restaurante.clasificacion = [1, 2, 3, 4, 5]
+      restaurante.localidad_id = Localidad.pluck(:id)
     end
 
   end

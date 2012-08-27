@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @restaurante.nombre
+
+%p
+  %b Resumen:
+  = @restaurante.resumen
+
+%p
+  %b Descripcion:
+  = @restaurante.descripcion
+
+%p
+  %b Clasificacion:
+  = number_with_delimiter @restaurante.clasificacion
+
+%p
+  %b Localidad:
+  = @restaurante.localidad
+
+%p
+  %b Telefono:
+  = @restaurante.telefono
+
+= link_to 'Editar', edit_restaurante_path(@restaurante)
+\|
+= link_to 'Listado', restaurantes_path

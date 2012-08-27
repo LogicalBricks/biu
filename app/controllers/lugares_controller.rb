@@ -27,6 +27,8 @@ class LugaresController < ApplicationController
     }
     @hoteles = @lugar.localidad.hoteles if @lugar.localidad
     @hoteles ||= []
+    @restaurantes = @lugar.localidad.restaurantes if @lugar.localidad
+    @restaurantes ||= []
 
     respond_to do |format|
       format.html # show.html.erb

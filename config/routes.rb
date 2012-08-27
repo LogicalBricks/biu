@@ -1,4 +1,6 @@
 Biu::Application.routes.draw do
+  resources :restaurantes
+
   resources :hoteles
 
   match 'calendario/:year/:month' => 'home#calendario'
