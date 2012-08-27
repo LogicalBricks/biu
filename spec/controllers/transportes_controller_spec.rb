@@ -28,7 +28,7 @@ describe TransportesController do
       nombre: 'a transport name',
       resumen: 'a transportt abstract',
       descripcion: 'a transportt description',
-      horarios: 'a text to show the schedule'
+      horarios: 'a text to show the schedule',
       clasificacion: 3
     }
   end
