@@ -90,7 +90,7 @@ namespace :db do
       transporte.nombre = Populator.words(1..5).titleize
       transporte.resumen = Populator.sentences(1..5)
       transporte.telefono = Populator.words(3)
-      transporte.horario = Populator.sentences(5...10)
+      transporte.horarios = Populator.sentences(5...10)
       transporte.clasificacion = [1, 2, 3, 4, 5]
       transporte.localidad_id = Localidad.pluck(:id)
     end
