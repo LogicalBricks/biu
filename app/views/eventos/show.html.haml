@@ -12,6 +12,10 @@
       = @evento.lugar
 .row
   .span7
+    = link_to_unless params[:view].blank?, 'Normal', params.merge(:view => ""), :title => "Normal"
+    = link_to_unless params[:view] == 'thumbnail', 'Thumbnail', params.merge(:view => "thumbnail"), :title => "Thumbnail"
+    = link_to_unless params[:view] == 'list', 'Lista', params.merge(:view => "list"), :title => "list"
+    = link_to_unless params[:view] == 'mapa', 'Mapa', params.merge(:view => "mapa"), :title => "mapa"
     #FotosCarousel.carousel.slide   
       .carousel-inner
         - first_element = true

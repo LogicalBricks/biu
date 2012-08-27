@@ -1,0 +1,5 @@
+.btn-group.pull-right
+  = link_to content_tag(:i,'',class: 'icon-picture')+'Normal' , params.merge(view: ""), title: "Normal", class: "btn #{'disabled' if params['view'].blank? }"
+  = link_to content_tag(:i , '', class: 'icon-th-large') + 'Thumbnail', params.merge(view: "thumbnail"), title: "Thumbnail", class: "btn #{'disabled' if params['view'] == 'thumbnail' }"
+  = link_to content_tag(:i , '', class: 'icon-list') + 'Lista', params.merge(view: "list"), title: "list", class: "btn #{'disabled' if params['view'] == 'list' }"
+  = link_to content_tag(:i, '', class: 'icon-map-marker') + 'Mapa', params.merge(view: "map"), title: "mapa", class: "btn #{'disabled' if params['view'] == 'map' }"

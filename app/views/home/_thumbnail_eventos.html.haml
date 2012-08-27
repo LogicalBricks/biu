@@ -1,0 +1,13 @@
+.row
+  .span12
+    %ul.thumbnails
+      - @eventos.each do |evento|
+        %li.span3
+          .thumbnail
+            %h5= evento.nombre
+            = link_to image_tag(evento.fotografias[0].imagen_url(:medium).to_s, width: 80), evento_path(evento)
+            %p
+              = truncate evento.resumen, length: 120
+              %small= link_to 'Ver más', evento_path(evento)
+
+

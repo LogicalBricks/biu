@@ -1,0 +1,14 @@
+.row
+  .span12
+    %ul.thumbnails
+
+      - @lugares.each do |lugar|
+        %li.span3
+          .thumbnail
+            %h5= lugar.nombre
+            = link_to image_tag(lugar.fotografias[0].imagen_url(:medium).to_s, width: 80), lugar_path(lugar)
+            %p
+              = truncate lugar.resumen, length: 120
+              %small= link_to 'Ver más', lugar_path(lugar)
+
+

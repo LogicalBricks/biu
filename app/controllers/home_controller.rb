@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @eventos = Evento.proximos
+    @markers = @eventos.collect(&:localizacion).to_gmaps4rails
   end
   
   def calendario
@@ -12,7 +13,7 @@ class HomeController < ApplicationController
   
   def lugares
     @lugares = Lugar.all
-    @markers = @lugares[0..10].collect(&:localizacion).to_gmaps4rails
+    @markers = @lugares.collect(&:localizacion).to_gmaps4rails
   end
 
   def lugares_all
