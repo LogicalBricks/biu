@@ -1,9 +1,8 @@
 .row.page-header
-  %h3 Eventos a realizarse en las próximas semanas
-  = link_to_unless params[:view].blank?, 'Normal', params.merge(:view => ""), :title => "Normal"
-  = link_to_unless params[:view] == 'thumbnail', 'Thumbnail', params.merge(:view => "thumbnail"), :title => "Thumbnail"
-  = link_to_unless params[:view] == 'list', 'Lista', params.merge(:view => "list"), :title => "list"
-  = link_to_unless params[:view] == 'mapa', 'Mapa', params.merge(:view => "mapa"), :title => "mapa"
+  .span8
+    %h3 Eventos a realizarse en las próximas semanas
+  .span4
+    = render 'options_buttons'
 
 = render 'normal_eventos' if params[:view].blank?
 = render 'list_eventos' if params[:view] == 'list'

@@ -1,14 +1,10 @@
 .row.page-header
-  .span12
+  .span8
     %h1 Lugares recomendados de Oaxaca
-    = link_to_unless params[:view].blank?, 'Normal', params.merge(:view => ""), :title => "Normal"
-    = link_to_unless params[:view] == 'thumbnail', 'Thumbnail', params.merge(:view => "thumbnail"), :title => "Thumbnail"
-    = link_to_unless params[:view] == 'list', 'Lista', params.merge(:view => "list"), :title => "list"
-    = link_to_unless params[:view] == 'mapa', 'Mapa', params.merge(:view => "mapa"), :title => "mapa"
+  .span4
+    = render 'options_buttons'
 
 = render 'normal_lugares' if params[:view].blank?
 = render 'list_lugares' if params[:view] == 'list'
 = render 'thumbnail_lugares' if params[:view] == 'thumbnail'
 = render 'mapa_lugares' if params[:view] == 'mapa'
-
-
