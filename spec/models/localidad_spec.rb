@@ -4,4 +4,5 @@ describe Localidad do
   it { should have_many(:lugares) }
   it { should have_many(:hoteles) }
   it { should have_many(:restaurantes) }
+  it { should have_many(:transportes) }
 end

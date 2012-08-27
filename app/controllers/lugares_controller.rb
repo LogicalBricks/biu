@@ -25,10 +25,9 @@ class LugaresController < ApplicationController
         data: @lugar.localizacion.to_gmaps4rails
       }
     }
-    @hoteles = @lugar.localidad.hoteles if @lugar.localidad
-    @hoteles ||= []
-    @restaurantes = @lugar.localidad.restaurantes if @lugar.localidad
-    @restaurantes ||= []
+    @hoteles      = @lugar.localidad ? @lugar.localidad.hoteles      : []
+    @restaurantes = @lugar.localidad ? @lugar.localidad.restaurantes : []
+    @transportes  = @lugar.localidad ? @lugar.localidad.transportes  : []
 
     respond_to do |format|
       format.html # show.html.erb

@@ -11,7 +11,6 @@ namespace :db do
     fotos_lugares = Dir.glob(fotos_lugares_path + '/*')
 
 
-
     [Evento, Lugar, Fotografia, Localidad, Localizacion].each(&:delete_all)
 
     Localidad.populate 20 do |localidad|
@@ -85,6 +84,15 @@ namespace :db do
       restaurante.telefono = Populator.words(3)
       restaurante.clasificacion = [1, 2, 3, 4, 5]
       restaurante.localidad_id = Localidad.pluck(:id)
+    end
+
+    Transporte.populate 50 do |transporte|
+      transporte.nombre = Populator.words(1..5).titleize
+      transporte.resumen = Populator.sentences(1..5)
+      transporte.telefono = Populator.words(3)
+      transporte.horarios = Populator.sentences(5...10)
+      transporte.clasificacion = [1, 2, 3, 4, 5]
+      transporte.localidad_id = Localidad.pluck(:id)
     end
 
   end

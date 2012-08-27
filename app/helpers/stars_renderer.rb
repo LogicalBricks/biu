@@ -8,6 +8,10 @@ class StarsRenderer
     content_tag :div, star_images.html_safe, class: 'stars'
   end
 
+  ##################
+  private
+  ##################
+
   def star_images
     (0...5).to_a.collect do |position|
       star_image(((@rating - position) * 2).round)

@@ -1,0 +1,33 @@
+= form_for(@transporte) do |f|
+  = render 'error_messages', target: @transporte
+
+  .field
+    = f.label :nombre
+    %br
+    = f.text_field :nombre
+  .field
+    = f.label :resumen
+    %br
+    = f.text_field :resumen
+  .field
+    = f.label :descripcion
+    %br
+    = f.text_area :descripcion
+  .field
+    = f.label :clasificacion
+    %br
+    = f.number_field :clasificacion
+  .field
+    = f.label :localidad
+    %br
+    = f.text_field :localidad
+  .field
+    = f.label :telefono
+    %br
+    = f.text_field :telefono
+  .field
+    = f.label :horarios
+    %br
+    = f.text_area :horarios
+  .actions
+    = f.submit

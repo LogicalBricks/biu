@@ -61,20 +61,20 @@
     %h5 Transporte
     %hr
     %ul
-      - @hoteles.each do |hotel|
+      - @transportes.each do |transporte|
         %li
-          %b= hotel.nombre
-          %i= hotel.telefono
+          %b= transporte.nombre
+          %i= transporte.telefono
           %br
 
   .span3
     %h5 Servicios
     %hr
     %ul
-      - @hoteles.each do |hotel|
+      - @transportes.each do |transporte|
         %li
-          %b= hotel.nombre
-          %i= hotel.telefono
+          %b= transporte.nombre
+          %i= transporte.telefono
           %br
 
 = yield :scripts

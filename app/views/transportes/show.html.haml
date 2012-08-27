@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @transporte.nombre
+
+%p
+  %b Resumen:
+  = @transporte.resumen
+
+%p
+  %b Descripcion:
+  = @transporte.descripcion
+
+%p
+  %b Clasificacion:
+  = number_with_delimiter @transporte.clasificacion
+
+%p
+  %b Localidad:
+  = @transporte.localidad
+
+%p
+  %b Telefono:
+  = @transporte.telefono
+
+%p
+  %b Horarios:
+  = @transporte.horarios
+
+= link_to 'Editar', edit_transporte_path(@transporte)
+\|
+= link_to 'Listado', transportes_path
