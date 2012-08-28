@@ -1,4 +1,6 @@
 .row
   .span12
-    = gmaps4rails(@markers)
-    = yield :scripts
+    = gmaps4rails(@markers_lugares)
+    -# dos_mapas||= false
+    -# mapa = { markers: { data: @markers_lugares }, map_options: {:container_class => "lugares_map_container", :id => "lugares_map", :class => "lugares_map"} }
+    =# gmaps( mapa.merge( dos_mapas ? { scripts: :none } : {} ))

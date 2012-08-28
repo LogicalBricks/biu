@@ -15,13 +15,12 @@ Biu::Application.routes.draw do
   get "home/lugares"
   get "home/lugares_all"
 
+
+  get "busqueda/buscar"
+
   resources :lugares
 
-  resources :eventos do
-    collection do
-      get :buscar
-    end
-  end
+  resources :eventos
 
   resources :localidades
 

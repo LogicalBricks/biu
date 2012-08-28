@@ -1,0 +1,42 @@
+%h1= "Resultado de la búsqueda"
+
+%ul#myTab.nav.nav-tabs
+  %li.active
+    = link_to "Eventos (#{@eventos.size})", '#eventos', data: {toggle: "tab"}
+  %li
+    = link_to "Lugares (#{@lugares.size})", '#lugares', data: {toggle: "tab"}
+
+.row
+  #myTabContent.tab-content
+    #eventos.tab-pane.fade.in.active
+      .span5
+        %h3= "Eventos que coinciden con #{@busqueda}"
+      .span5.pull-right
+        = render 'home/options_buttons', hide_mapa: true
+      .otro{style: 'clear: both'}
+
+      - primeros_eventos = @eventos[1..10] || []
+      - resto_eventos = @eventos[11..-1] || []
+      .eventos
+        = render 'home/normal_eventos' if params[:view].blank?
+        = render 'home/list_eventos' if params[:view] == 'list'
+        = render 'home/thumbnail_eventos' if params[:view] == 'thumbnail'
+        =# render 'home/mapa_eventos', dos_mapas: true if params[:view] == 'map'
+
+
+    #lugares.tab-pane.fade
+      .span5
+        %h3= "#{@lugares.size} Lugares"
+      .span5.pull-right
+        = render 'home/options_buttons', hide_mapa: true
+      .otro{style: 'clear: both'}
+
+      - primeros_lugares = @lugares[1..10] || []
+      - resto_lugares = @lugares[11..-1] || []
+      .eventos
+        = render 'home/normal_lugares' if params[:view].blank?
+        = render 'home/list_lugares' if params[:view] == 'list'
+        = render 'home/thumbnail_lugares' if params[:view] == 'thumbnail'
+        =# render 'home/mapa_lugares', dos_mapas: true if params[:view] == 'map'
+
+

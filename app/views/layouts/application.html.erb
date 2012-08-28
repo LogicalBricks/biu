@@ -27,7 +27,7 @@
               <%= link_to 'Calendario', calendario_path, class: 'brand' %>
             </ul>
           </div>          
-          <%= form_tag buscar_eventos_path, method: :get, class: 'navbar-search pull-right' do %>
+          <%= form_tag busqueda_buscar_path, method: :get, class: 'navbar-search pull-right' do %>
             <%= text_field_tag :buscar, nil, class: 'search-query', placeholder: 'Buscar' %>
           <% end %>
         </div>
@@ -49,6 +49,6 @@
       <% end %>
       <%= yield %>
     </div>
-
+     <%= yield :scripts %>
   </body>
 </html>
