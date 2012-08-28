@@ -10,7 +10,7 @@
               = image_tag(f.imagen_url(:medium).to_s, width: 660) 
               .carousel-caption
                 %h4
-                  = f.titulo
+                  = link_to f.titulo, evento_path(e)
                 %p
                   = f.descripcion
               - first_element = false
