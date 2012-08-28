@@ -4,7 +4,7 @@
       - @eventos.each do |evento|
         %li.span3
           .thumbnail
-            %h5= evento.nombre
+            %h5= link_to evento.nombre, evento_path(evento)
             = link_to image_tag(evento.fotografias[0].imagen_url(:medium).to_s, width: 80), evento_path(evento)
             %p
               = truncate evento.resumen, length: 120

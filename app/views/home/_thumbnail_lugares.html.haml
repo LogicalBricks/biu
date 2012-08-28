@@ -5,7 +5,7 @@
       - @lugares.each do |lugar|
         %li.span3
           .thumbnail
-            %h5= lugar.nombre
+            %h5= link_to lugar.nombre, lugar_path(lugar)
             = link_to image_tag(lugar.fotografias[0].imagen_url(:medium).to_s, width: 80), lugar_path(lugar)
             %p
               = truncate lugar.resumen, length: 120
