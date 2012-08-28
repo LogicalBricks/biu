@@ -17,7 +17,7 @@ namespace :db do
       localidad.nombre = Populator.words(1..5).titleize
     end
 
-    Evento.populate 50 do |evento|
+    Evento.populate 500 do |evento|
       evento.nombre = Populator.words(1..5).titleize
       evento.lugar = Populator.words(1..5)
       evento.resumen = Populator.sentences(5..8)

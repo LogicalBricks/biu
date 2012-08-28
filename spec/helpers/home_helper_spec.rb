@@ -17,11 +17,11 @@ describe HomeHelper do
     end
 
     it 'generates a link to next month' do
-      helper.link_to_next_month(@date).should == "<a href=\"/calendario/2012/10\">octubre</a>"
+      helper.link_to_next_month(@date).include?("href=\"/calendario/2012/10\"").should be_true
     end
 
     it 'generates a link to previous month' do
-      helper.link_to_previous_month(@date).should == "<a href=\"/calendario/2012/8\">agosto</a>"
+      helper.link_to_previous_month(@date).include?("href=\"/calendario/2012/8\"").should be_true
     end
   end
 end
