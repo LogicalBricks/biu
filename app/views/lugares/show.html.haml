@@ -3,7 +3,7 @@
     %h1
       = @lugar.nombre
 .row
-  .span7
+  .span6
     #FotosCarousel.carousel.slide
       .carousel-inner
         - first_element = true
@@ -18,16 +18,16 @@
             - first_element = false
       = link_to '‹', '#FotosCarousel', class: 'carousel-control left', data: { slide: 'prev'}
       = link_to '›', '#FotosCarousel', class: 'carousel-control right', data: { slide: 'next'}
-  .span5 
+  .span6 
     = link_to 'Ubicacion', '#ubicacion' 
     \|
     = link_to 'Servicios', '#servicios'
     %p.lugar_resumen
       %strong Resumen:
-      = @lugar.resumen
+      = simple_format @lugar.resumen
     %p.lugar_descripcion
       %strong Descripción:
-      = @lugar.descripcion
+      = simple_format @lugar.descripcion
     
 #ubicacion.row
   = gmaps(@marker)

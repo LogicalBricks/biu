@@ -9,15 +9,9 @@
   background-color: green;
 }
 
-.eventos {
-  .preview_search {
-    width: 220px;
+.eventos, .lugares {
+  .thumbnail {
     height: 280px;
-    float: left;
-    padding: 5px;
-    border: 1px solid #aaa;
-    margin: 2px;
-    border-radius: 15px;
 
     .nombre {
       font-weight: bold;
@@ -41,8 +35,12 @@
     }
 
   }
+}
 
-  
+.lugares {
+  .thumbnail {
+    height: 230px;
+  }
 }
 
 .single {
@@ -71,14 +69,12 @@
 
 .calendar_nav {
   text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  padding-bottom: 0.8em;
 
-  h1 {
+  .nombre_mes {
     display: inline;
-  }
-
-  div {
-    display: inline;
-    padding-top: 19px;
   }
 }
 
@@ -87,19 +83,19 @@
 }
 
 .thumbnail {
-    .nombre {
-      font-weight: bold;
-    }
-
-    .fecha {
-      font-style: italic;
-    }
-
-    img {
-      padding: 5px;
-      float: left;
-      margin-right: 3px;
-    }
-    padding: 10px;
-    height: 170px;
+  .nombre {
+    font-weight: bold;
   }
+
+  .fecha {
+    font-style: italic;
+  }
+
+  img {
+    padding: 5px;
+    float: left;
+    margin-right: 3px;
+  }
+  padding: 10px;
+  height: 170px;
+}
