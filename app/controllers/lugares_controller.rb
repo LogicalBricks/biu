@@ -28,6 +28,7 @@ class LugaresController < ApplicationController
     @hoteles      = @lugar.localidad ? @lugar.localidad.hoteles      : []
     @restaurantes = @lugar.localidad ? @lugar.localidad.restaurantes : []
     @transportes  = @lugar.localidad ? @lugar.localidad.transportes  : []
+    @emergencias  = @lugar.localidad ? @lugar.localidad.emergencias  : []
 
     respond_to do |format|
       format.html # show.html.erb

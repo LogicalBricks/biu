@@ -95,6 +95,13 @@ namespace :db do
       transporte.localidad_id = Localidad.pluck(:id)
     end
 
+    Emergencia.populate 50 do |emergencia|
+      emergencia.nombre = Populator.words(1..5).titleize
+      emergencia.resumen = Populator.sentences(1..5)
+      emergencia.telefono = Populator.words(3)
+      emergencia.localidad_id = Localidad.pluck(:id)
+    end
+
   end
 
   def random_latitude_longitude 

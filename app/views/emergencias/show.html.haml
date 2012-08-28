@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @emergencia.nombre
+
+%p
+  %b Resumen:
+  = @emergencia.resumen
+
+%p
+  %b Descripcion:
+  = @emergencia.descripcion
+
+%p
+  %b Localidad:
+  = @emergencia.localidad
+
+%p
+  %b Telefono:
+  = @emergencia.telefono
+
+%p
+  %b Tipo:
+  = @emergencia.tipo
+
+= link_to 'Editar', edit_emergencia_path(@emergencia)
+\|
+= link_to 'Listado', emergencias_path

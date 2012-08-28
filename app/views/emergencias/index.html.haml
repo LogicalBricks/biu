@@ -1,0 +1,35 @@
+%h1 Listado de Emergencias
+
+- if @emergencias.any?
+  %table
+    %thead
+      %tr
+        %th Nombre
+        %th Resumen
+        %th Descripcion
+        %th Localidad
+        %th Telefono
+        %th Tipo
+        %th
+        %th
+        %th
+
+    %tbody
+      - @emergencias.each do |emergencia|
+        %tr
+          %td= emergencia.nombre
+          %td= emergencia.resumen
+          %td= emergencia.descripcion
+          %td= emergencia.localidad
+          %td= emergencia.telefono
+          %td= emergencia.tipo
+          %td= link_to 'Mostrar', emergencia
+          %td= link_to 'Editar', edit_emergencia_path(emergencia)
+          %td= link_to 'Eliminar', emergencia, method: :delete, data: { confirm: '¿Estás seguro?' }
+- else
+  %div
+    %h3 No se encontraron Emergencias
+
+%br
+
+= link_to "Nueva Emergencia", new_emergencia_path

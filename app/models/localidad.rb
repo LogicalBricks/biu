@@ -6,4 +6,5 @@ class Localidad < ActiveRecord::Base
   has_many :hoteles
   has_many :restaurantes
   has_many :transportes
+  has_many :emergencias
 end

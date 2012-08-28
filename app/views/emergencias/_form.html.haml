@@ -1,0 +1,29 @@
+= form_for(@emergencia) do |f|
+  = render 'error_messages', target: @emergencia
+
+  .field
+    = f.label :nombre
+    %br
+    = f.text_field :nombre
+  .field
+    = f.label :resumen
+    %br
+    = f.text_field :resumen
+  .field
+    = f.label :descripcion
+    %br
+    = f.text_area :descripcion
+  .field
+    = f.label :localidad
+    %br
+    = f.text_field :localidad
+  .field
+    = f.label :telefono
+    %br
+    = f.text_field :telefono
+  .field
+    = f.label :tipo
+    %br
+    = f.text_field :tipo
+  .actions
+    = f.submit
