@@ -1,8 +1,10 @@
-%h1.nombre_mes= l(@date, format: :mes_anio).titleize
-
-.span1= link_to_previous_month @date
-
 .span9
+  .calendar_nav
+    %h1
+      = link_to_previous_month @date
+      .nombre_mes= l(@date, format: :mes_anio).titleize
+      = link_to_next_month @date
+
   #calendar
     = calendar_for(@eventos, :year => @date.year, :month => @date.month, html: { class: 'table table-bordered' }) do |t|
       = t.head('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo')
@@ -14,5 +16,3 @@
             - nombres = eventos.collect(&:nombre).to_sentence
             - evento = eventos.first
             = link_to_evento evento, nombres if eventos.size > 0
-
-.span1= link_to_next_month @date
