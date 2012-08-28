@@ -35,46 +35,54 @@
 .row
   %br
 
-#servicios.row
-  .span3
+#servicios.row-fluid
+  .span3.well
     %h5 Hoteles
     %hr
     %ul
       - @hoteles.each do |hotel|
         %li
           %b= hotel.nombre
+          %br
           %i= hotel.telefono
           %i= render_stars hotel.clasificacion
           %br
+    = link_to "Ver más hoteles en #{@hoteles.first.localidad.nombre}", '#'
 
-  .span3
+  .span3.well
     %h5 Restaurantes
     %hr
     %ul
       - @restaurantes.each do |hotel|
         %li
           %b= hotel.nombre
+          %br
           %i= hotel.telefono
           %br
+    = link_to "Ver más restaurantes en #{@hoteles.first.localidad.nombre}", '#'
 
-  .span3
+  .span3.well
     %h5 Transporte
     %hr
     %ul
       - @transportes.each do |transporte|
         %li
           %b= transporte.nombre
+          %br
           %i= transporte.telefono
           %br
+    = link_to "Ver más transportes en #{@hoteles.first.localidad.nombre}", '#'
 
-  .span3
-    %h5 Servicios
+  .span3.well
+    %h5 Servicios de emergencia
     %hr
     %ul
-      - @transportes.each do |transporte|
+      - @emergencias.each do |emergencia|
         %li
-          %b= transporte.nombre
-          %i= transporte.telefono
+          %b= emergencia.nombre
           %br
+          %i= emergencia.telefono
+          %br
+    = link_to "Ver más servicios en #{@hoteles.first.localidad.nombre}", '#'
 
 = yield :scripts
