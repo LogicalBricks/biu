@@ -20,7 +20,8 @@
             = image_tag(f.imagen_url(:medium).to_s) 
             .carousel-caption
               %h4
-                = f.titulo
+                = @evento.nombre 
+                %small= f.titulo
               %p
                 = f.descripcion
             - first_element = false

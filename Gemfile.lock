@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/LogicalBricks/lbs-faker.git
-  revision: 2cdc5a3792e06196407ba8053b763a3cda3a3235
+  revision: 3ad8c415837c92f7596bc8ba4ca6afd2a757210c
   specs:
     lbs-faker (1.0.1)
       i18n (~> 0.5)

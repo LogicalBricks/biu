@@ -4,6 +4,8 @@ namespace :db do
     require 'populator'
     require 'faker'
 
+    Faker::Config.locale = 'es-mx'
+
     fotos_eventos_path = File.join(Rails.root, 'lib', 'fotos','eventos')
     fotos_eventos = Dir.glob(fotos_eventos_path + '/*')
 
@@ -18,7 +20,7 @@ namespace :db do
     end
 
     Evento.populate 500 do |evento|
-      evento.nombre = Populator.words(1..5).titleize
+      evento.nombre = Faker::Event.name 
       evento.lugar = Populator.words(1..5)
       evento.resumen = Populator.sentences(5..8)
       evento.descripcion= Populator.paragraphs(1..3)
@@ -45,7 +47,7 @@ namespace :db do
     end 
 
     Lugar.populate 50 do |lugar|
-      lugar.nombre = Populator.words(1..5).titleize
+      lugar.nombre = Faker::Place.name
       lugar.resumen = Populator.sentences(5..8)
       lugar.descripcion= Populator.paragraphs(1..3)
       lugar.localidad_id = Localidad.pluck(:id)
