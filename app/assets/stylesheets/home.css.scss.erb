@@ -9,9 +9,42 @@
   background-color: green;
 }
 
-.eventos, .lugares {
+.eventos_normal, .lugares_normal {
   .thumbnail {
-    height: 280px;
+    height: 200px;
+
+    .nombre {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .fecha {
+      font-style: italic;
+      text-align: center;
+    }
+
+    .foto {
+      text-align: center;
+    }
+
+    .costo {
+      font-weight: bold;
+    }
+
+    .lugar {
+    }
+
+    .ver_mas {
+      text-align: center;
+    }
+
+  }
+}
+
+
+.eventos_thumbnail, .lugares_thumbnail {
+  .thumbnail {
+    height: 230px;
 
     .nombre {
       font-weight: bold;
@@ -22,9 +55,9 @@
     }
 
     .foto {
-      padding: 3px;
       float: left;
-      margin-right: 3px;
+      padding: 3px;
+      margin: 3px;
     }
 
     .costo {
@@ -34,12 +67,9 @@
     .lugar {
     }
 
-  }
-}
+    .ver_mas {
+    }
 
-.lugares {
-  .thumbnail {
-    height: 230px;
   }
 }
 
@@ -80,22 +110,4 @@
 
 .nombre_mes {
   text-align: center;
-}
-
-.thumbnail {
-  .nombre {
-    font-weight: bold;
-  }
-
-  .fecha {
-    font-style: italic;
-  }
-
-  img {
-    padding: 5px;
-    float: left;
-    margin-right: 3px;
-  }
-  padding: 10px;
-  height: 170px;
 }

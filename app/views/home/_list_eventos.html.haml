@@ -5,7 +5,7 @@
         %tr
           %th  
           %th Nombre
-          %th Fecha y hora  
+          %th{style: 'width: 100px'} Fecha y hora  
           %th Resumen
       %tbody
         - @eventos.each do |evento|
@@ -14,5 +14,4 @@
               .foto= link_to image_tag(evento.fotografias[0].imagen_url(:medium).to_s, width: 80), evento_path(evento)
             %td= link_to evento.nombre, evento_path(evento)
             %td= l evento.fecha_y_hora, format: :short
-            %td
-              = evento.resumen
+            %td= evento.resumen

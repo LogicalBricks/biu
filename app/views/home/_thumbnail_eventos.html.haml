@@ -1,13 +1,15 @@
 .row
-  .span12
+  .span12.lugares_thumbnail
     %ul.thumbnails
       - @eventos.each do |evento|
         %li.span3
           .thumbnail
-            %h5= link_to evento.nombre, evento_path(evento)
-            = link_to image_tag(evento.fotografias[0].imagen_url(:medium).to_s, width: 80), evento_path(evento)
-            %p
-              = truncate evento.resumen, length: 120
-              %small= link_to 'Ver más', evento_path(evento)
+            .nombre
+              = link_to(evento.nombre, evento_path(evento))
+              = evento.costo == 0 || evento.costo.nil? ? '¡Gratis!' : number_to_currency(evento.costo)
+            .foto= link_to image_tag(evento.fotografias[0].imagen_url(:medium).to_s, width: 80), evento_path(evento)
+            .resumen= truncate evento.resumen, length: 200
+            .fecha= l evento.fecha_y_hora, format: :short
+            .ver_mas= link_to 'Ver más', evento_path(evento)
 
 
